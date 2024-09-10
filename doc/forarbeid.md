@@ -1,10 +1,14 @@
-- Krav
+### Innhold
 - Funksjoner
+- Krav
+- Frontend design
 - Valg av teknologi
 - C4 diagram
 - API endepunkter
 - Databasestruktur
 - Kodestruktur
+
+
 
 ## Funksjoner
 Funksjoner brukeren trenger
@@ -33,6 +37,12 @@ Funksjonalitet som er ønskelig, men ingen krav for MVP
   
 - **Ikke-funksjonelle krav**:
   - Sikkerhet
+
+# Frontend design
+Usikker om dette er litt for ambesiøst, eller mulig for dette prosjektet
+
+[Bilde fra figma med tenkt design av frontend (hovedside)](https://github.com/SiriKSlyk/utgiftsoversikt/blob/doc/doc/img/frontend-design.png)
+
 
 # Valg av teknologi
 - **Backend**:
@@ -64,11 +74,11 @@ Viser systemets høy-nivå oversikt og dets relasjoner til eksterne aktører.   
 # API endepunkter
 | HTTP Method | Endepunkt                 | Beskrivelse                      |
 |-------------|---------------------------|----------------------------------|
-| GET         | /api/                     | Hent alle utgifter               |
-| GET         | /api/                     | Hent en spesifikk utgift         |
-| POST        | /api/                     | Legg til en ny utgift            |
-| PUT         | /api/                     | Oppdater en eksisterende utgift  |
-| DELETE      | /api/                     | Slett en utgift                  |
+| GET         | /api/                     |                |
+| GET         | /api/                     |          |
+| POST        | /api/                     |             |
+| PUT         | /api/                     |   |
+| DELETE      | /api/                     |                   |
 
 # Databasestruktur
 
