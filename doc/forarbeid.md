@@ -82,7 +82,7 @@ Viser systemets høy-nivå oversikt og dets relasjoner til eksterne aktører.   
 
 # Databasestruktur
 
-!["Diagram over databasestrukturen som inneholder relasjoner](img/database.png)
+["Diagram over databasestrukturen som inneholder relasjoner](img/database.png)
 
 
 
