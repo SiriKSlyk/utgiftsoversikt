@@ -41,7 +41,7 @@ Funksjonalitet som er ønskelig, men ingen krav for MVP
 # Frontend design
 Usikker om dette er litt for ambesiøst, eller mulig for dette prosjektet
 
-[Bilde fra figma med tenkt design av frontend (hovedside)](img/frontend-design.png)
+![Bilde fra figma med tenkt design av frontend (hovedside)](img/frontend-design.png)
 
 
 # Valg av teknologi
