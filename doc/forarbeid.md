@@ -1,3 +1,7 @@
+
+
+
+
 ### Innhold
 - Funksjoner
 - Krav
@@ -7,8 +11,6 @@
 - API endepunkter
 - Databasestruktur
 - Kodestruktur
-
-
 
 ## Funksjoner
 Funksjoner brukeren trenger
@@ -82,9 +84,89 @@ Viser systemets høy-nivå oversikt og dets relasjoner til eksterne aktører.   
 
 # Databasestruktur
 
-["Diagram over databasestrukturen som inneholder relasjoner](img/database.png)
+```mermaid
+---
+title: Databasestruktur utgiftsoversikt
+---
+erDiagram
+    Users ||--o{ Month_budget : has
+    Users ||--o{ Month_expenses : has
+    Users ||--o{ Repeateble_expese : has
+    Users ||--o{ Expense : has
+    Users {
+        int Id PK
+        varchar name
+        varchar Email
+        varchar Fist_name
+        varchar Last_name
+        varchar Is_admin
+        varchar Password_hash
+        varchar Salt
+        varchar Hash_algorthm
+        varchar Hash_parameters
+    }
 
+    Repeateble_expese {
+        int Id PK
+        int Id_fk FK
+        string Name
+        decimal Sum
+        int Category_fk FK
+        int Shop_name_fk FK
+        date Start_date
+        date End_date
+        string description
+    }
 
+    Expense {
+        int Id PK
+        int Id_fk FK
+        date Date
+        int Shop_name_fk FK
+        int Category_fk
+        int Sum
+        string Description
+    }
+
+    Month_expenses {
+        int Id PK
+        int Id_fk FK
+        varchar(6) Month
+        decimal House_ex
+        decimal Food_ex
+        decimal Transport_ex
+        decimal Debt_ex
+        decimal Saving_ex
+        decimal Etc_ex
+        decimal Subscriptions_ex
+    }
+
+    Month_budget {
+        int Id PK
+        int Id_fk FK
+        varchar(6) Month
+        decimal House_bg
+        decimal Food_bg
+        decimal Transport_bg
+        decimal Debt_bg
+        decimal Saving_bg
+        decimal Etc_bg
+        decimal Subscriptions_bg
+    }
+    Categories ||--o{ Expense : has
+    Categories ||--o{ Repeateble_expese : has
+    Categories {
+        int Id PK
+        string Category
+    }
+    Shops ||--o{ Expense : has
+    Shops ||--o{ Repeateble_expese : has
+    Shops {
+        int Id PK
+        string Shop
+    }
+
+```
 
 ## Brukertabell
 
@@ -215,16 +297,16 @@ CREATE TABLE Shops (
 - `UpdateUser()`
 - `DeleteUser()`
 
-**ExpensesController**
+**~~ExpensesController~~**
 - `GetExpensesById()`
-- `GetAllExpensesByUserId()`
+
 - `GetAllExpensesByUserIdAndMonth()`
 - `CreateExpenses()`
 - `UpdateExpenses()`
 - `DeleteExpenses()`
 - `GetMonthlyExpencesByCategory()`
 
-**BudgetController**
+**~~BudgetController~~**
 - `GetMontlyBudgetByUserId()`
 - `CreateMonthlyBudget()`
 - `UpdateMonthlyBudget()`
@@ -241,6 +323,12 @@ CREATE TABLE Shops (
 - `CreateRepeatingExpensesById()`
 - `UpdateRepeatingExpense()`
 - `DeleteRepeatingExpence()`
+
+- `GetMonthlyExpensesByMonth()`
+- `GetMonthlyBudgetByMonth()`
+- `GetAllExpensesByUserId()`
+- `GetAllExpencesByUserIdSortedBy()`
+- `GetAllExpencesByUserIdByFilters()`
 
 ### Services
 **UserService**
