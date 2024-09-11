@@ -26,5 +26,14 @@ namespace Utgiftsoversikt.Controllers
                 return NotFound();
             return user;
         }
+
+        [HttpGet(Name = "GetUsers")]
+        public ActionResult<List<User>> Get()
+        {
+            var user = UserService.FindAllUsers();
+            if (user == null)
+                return NotFound();
+            return user;
+        }
     }
 }
