@@ -77,13 +77,34 @@ Viser systemets høy-nivå oversikt og dets relasjoner til eksterne aktører.   
 
 
 # API endepunkter
-| HTTP Method | Endepunkt                 | Beskrivelse                      |
-|-------------|---------------------------|----------------------------------|
-| GET         | /api/                     |                |
-| GET         | /api/                     |          |
-| POST        | /api/                     |             |
-| PUT         | /api/                     |   |
-| DELETE      | /api/                     |                   |
+| HTTP Method | Endepunkt                                 | Beskrivelse                                               |
+|-------|-------------------------------------------------|-----------------------------------------------------------|
+| GET   | /api/users                                      | Henter alle brukere                                       |
+| GET   | /api/users/{userId}                             | Henter en spesifikk bruker                                |
+| POST  | /api/users                                      | Oppretter en ny bruker                                    |
+| PUT   | /api/users/{userId}                             | Oppdaterer en spesifikk bruker                            |
+| DELETE| /api/users/{userId}                             | Sletter en spesifikk bruker                               |
+|       |                                                 |                                                           |
+| POST  | /api/login/                                     | Logger inn bruker med epost og hashet passord             |
+| POST  | /api/logout/                                    | Logger ut en bruker med gyldig session                    |
+|       |                                                 |                                                           |
+| GET   | /api/users/{userId}/expenses                    | Henter alle utgifter for en bruker                        |
+| GET   | /api/users/{userId}/expenses/{expenseId}        | Henter en spesifikk utgift for en bruker                  |
+| POST  | /api/users/expenses                             | Oppretter en ny utgift for en bruker                      |
+| PUT   | /api/users/{userId}                             | Oppdaterer en spesifikk utgift for en bruker              |
+| DELETE| /api/users/{userId}                             | Sletter en spesifikk utgift for en bruker                 |
+|       |                                                 |                                                           |
+| GET   | /api/users/monthlyOverview/{monthId}            | Henter sammendrag for spesifikk måned YYYMM               |
+| GET   | /api/users/monthlyOverview/{monthId}            | Henter sammendrag for spesifikk måned YYYMM               |
+|       |                                                 |                                                           |
+| GET   | /api/users/{userId}/budget/                     | Henter budsjett for en spesifikk bruker                   |
+| PUT   | /api/users/{userId}/budget/                     | Oppdatere budsjett for en spesifikk bruker                |
+|       |                                                 |                                                           |
+| GET   | /api/users/{userId}/repeatingExpenses/          | Henter alle faste utgifter for en spesifikk bruker        |
+| GET   | /api/users/{userId}/repeatingExpenses/{repExId} | Henter en spesifikk faste utgifter for en spesifikk bruker|
+| POST  | /api/users/{userId}/repeatingExpenses/          | Oppretter en ny fast utgift for en spesifikk bruker       |
+| PUT   | /api/users/{userId}/repeatingExpenses/{repExId} | Oppdaterer en fast utgift for en spesifikk bruker         |
+| DELTE | /api/users/{userId}/repeatingExpenses/{repExId} | Sletter en fast utgift for en spesifikk bruker            |
 
 # Databasestruktur
 
