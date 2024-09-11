@@ -10,10 +10,11 @@
 - C4 diagram
 - API endepunkter
 - Databasestruktur
-- Kodestruktur
+- Klassediagram
+- Mappestruktur
 
 ## Funksjoner
-Funksjoner brukeren trenger
+Funksjoner brukeren trenger:
 - Registrering av bruker
 - Innlogging av bruker
 - CRUD budsjett
@@ -27,7 +28,9 @@ Funksjonalitet som er ønskelig, men ingen krav for MVP
 - Sortere utgifter
 - Filtrere utgifter
 - Se sammendrag av gitt måned
-    - Hvor mye +- budsjettet
+  - Hvor mye +- budsjettet
+- Lage egne samlinger av utgifter med tags
+  - Gave, forsikringer++ 
 
 
 ## Krav
@@ -286,7 +289,7 @@ CREATE TABLE Shops (
     Shop_name VARCHAR(100)                          -- Butikknavn
 );
 ```
-
+<!-- 
 # Kodestruktur
 ### Kontrollere
 
@@ -488,3 +491,12 @@ CREATE TABLE Shops (
 - Om budsjettet ikke stemmer overens med totalt sum av kategoriene:
   - Sette resten på sparing
   Gi en feilmelding som hindrer budsjettet i å være gyldig
+-->
+
+# Klassediagram
+
+
+
+# Mappstruktur
+
+`$ tree`
