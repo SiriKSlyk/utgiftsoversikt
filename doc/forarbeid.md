@@ -1,7 +1,3 @@
-
-
-
-
 ### Innhold
 - Funksjoner
 - Krav
@@ -191,7 +187,7 @@ erDiagram
     }
 
 ```
-
+<!--
 ## Brukertabell
 
 ### Users
@@ -269,7 +265,7 @@ CREATE TABLE Monthly_expenses (
 );
 ```
 
-### Repeateble_expeses
+### Repeateble_expenses
 En tabell som inneholder alle repeterende utgifter. Målet med denne tabellen er å automatisk opprette utgiftrader basert på om en fast utgift er aktiv eller ikke.
 ```sql
 CREATE TABLE Repeateble_expenses (
@@ -310,210 +306,7 @@ CREATE TABLE Shops (
     Shop_name VARCHAR(100)                          -- Butikknavn
 );
 ```
-<!-- 
-# Kodestruktur
-### Kontrollere
-
-**UserController**
-- `GetUserById()`
-- `GetAllUsers()`
-- `CreateUser()` ?
-- `UpdateUser()`
-- `DeleteUser()`
-
-**~~ExpensesController~~**
-- `GetExpensesById()`
-
-- `GetAllExpensesByUserIdAndMonth()`
-- `CreateExpenses()`
-- `UpdateExpenses()`
-- `DeleteExpenses()`
-- `GetMonthlyExpencesByCategory()`
-
-**~~BudgetController~~**
-- `GetMontlyBudgetByUserId()`
-- `CreateMonthlyBudget()`
-- `UpdateMonthlyBudget()`
-- `DeleteMonthlyBudget()`
-
-**AuthenticationController**
-- `Registrer()`
-- `Login()`
-- `Logout()`
-
-**MonthReviewController**
-- `GetRepeatingExpenseById()`
-- `GetAllRepeatingExpencesByUserId()`
-- `CreateRepeatingExpensesById()`
-- `UpdateRepeatingExpense()`
-- `DeleteRepeatingExpence()`
-
-- `GetMonthlyExpensesByMonth()`
-- `GetMonthlyBudgetByMonth()`
-- `GetAllExpensesByUserId()`
-- `GetAllExpencesByUserIdSortedBy()`
-- `GetAllExpencesByUserIdByFilters()`
-
-### Services
-**UserService**
-- `GetUserById()`
-- `GetAllUsers()`
-- `CreateUser()`
-- `UpdateUser()`
-- `DeleteUser()`
-
-**ExpensesService**
-- `GetExpenceById()`
-- `GetAllExpensesByUserId()`
-- `CreateExpense()`
-- `UpdateExpense()`
-- `DeleteExpense()`
-- `CalculateMonthlyExpenses()`
-- `GetExpensesByCategory()`
-
-**BudgetService**
-- `GetBudgetsById()`
-- `GetAllBudgetsByUserId()`
-- `CreateBudget()`
-- `UpdateBudget()`
-- `DeleteBudget()`
-- `CalculateMonthlyBudgets()`
-- `GetBudgetsByCategory()`
-
-**RepeatableExpenseService**
-- `GetRepeatingExpenseById()`
-- `GetAllRepeatingExpensesByUserId()`
-- `CreateRepeatingExpense()`
-- `UpdateRepeatingExpense()`
-- `DeleteRepeatingExpense()`
-- `ApplyRepeatingExpenseToMonth()`
-
-### Repositories
-**UserRepo**
-- `FindById()`
-- `FindByEmail()`
-- `FindAll()`
-- `Create()`
-- `Update()`
-- `Delete()`
-
-**ExpenseRepo**
-- `FindById()`
-- `FindAllByUserId`
-- `Create()`
-- `Update()`
-- `Delete()`
-- `FindByCategoryIdAndMonth()`
-
-**BudgetRepo**
-- `FindById()`
-- `FindAllByUserId()`
-- `Create()`
-- `Update()`
-- `Delete()`
-- `FindByCategoryAndMonth()`
-
-**RepeatableExpenseRepo**
-- `FindById()`
-- `FindAllByUserId()`
-- `Create()`
-- `Update()`
-- `Delete()`
-- `FindActiveRepeatingExpensesByUserId()`
-
-### Models
-**User**
-  - id
-  - email
-  - firstName
-  - lastName
-  - isAdmin
-  - passwordHash
-  - salt
-  - hashAlgorithm
-  - hashParameters
-**Expense**
-  - id
-  - idFk
-  - date
-  - category
-  - sum
-  - shopName
-  - description
-
-**MonthlyBudget**
-- id
-- userId
-- Month
-- house
-- food
-- transport
-- debt
-- saving
-- subscriptions
-- total
-
-**MonthlyExpenses**
-- id
-- userId
-- month
-- house
-- food
-- transport
-- debt
-- saving
-- subscriptions
-
-**RepeatableExpense**
-  - id
-  - userId
-  - name
-  - sum
-  - categoryId
-  - shopId
-  - startDate
-  - endDate
-  - description
-  
-**Categories**
-- id
-- cateogry
-
-**Shops**
-- id
-- shopName
-
-### Controllers
-
-- **UserController**: 
-  - GetUserById()
-  - GetAllUsers() ?
-  - CreateUser()
-  - UpdateUser()
-  - DeleteUser()
-- **ExpenseController**:
-  - GetAllExpensesByUserId() - Viser alle utgifter for en gitt bruker
-  - GetExpenseById() - Henter utgiften basert på id
-  - CreateExpense()
-  - UpdateExpense() - Oppdaterer eksisterende utgift
-  - DeleteExpense() - Sletter eksisterende utgift
-
-**MonthlyOverviewController**
-  - GetMonthlyOverViewByUserId() - Henter alle overviews for en bruker
-  - GetMonthlyOverViewByMonth() - Henter overview bassert for hitt måned og år
-  - CreateMonthlyOverView()
-  - UpdateMonthlyOverView()
-  - DeleteMonthlyOverView()
-
-
-
-## Problemer
-
-- Om budsjettet ikke stemmer overens med totalt sum av kategoriene:
-  - Sette resten på sparing
-  Gi en feilmelding som hindrer budsjettet i å være gyldig
 -->
-
 # Klassediagram
 ```mermaid
 ---
