@@ -48,7 +48,8 @@ jobs:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Initialize azd project
-        run: azd init --environment utgiftsoversikt-2 #${{ env.AZURE_ENV_NAME }}
+        run: azd init 
+        #--environment utgiftsoversikt-2 #${{ env.AZURE_ENV_NAME }}
         env:
           AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
 
