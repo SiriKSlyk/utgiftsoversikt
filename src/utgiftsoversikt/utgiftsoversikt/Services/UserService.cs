@@ -1,54 +1,67 @@
-﻿using utgiftsoversikt.Models;
+﻿
+using utgiftsoversikt.Models;
+using utgiftsoversikt.Repos;
 
-namespace Utgiftsoversikt.Service
+
+namespace utgiftsoversikt.Services
 {
-    public class UserService
+    public interface IUserService
     {
-        // Mock av fremtidig database
-        private static List<User> Users = new List<User>
-            {
-                new User { Id = 1, Name = "Alice", Age = 30 },
-                new User { Id = 2, Name = "Bob", Age = 25 },
-                new User { Id = 3, Name = "Charlie", Age = 35 },
-                new User { Id = 4, Name = "David", Age = 28 },
-                new User { Id = 5, Name = "Eve", Age = 32 },
-                new User { Id = 6, Name = "Frank", Age = 40 },
-                new User { Id = 7, Name = "Grace", Age = 29 },
-                new User { Id = 8, Name = "Hannah", Age = 24 },
-                new User { Id = 9, Name = "Isaac", Age = 31 },
-                new User { Id = 10, Name = "Jack", Age = 27 },
-            };
+        void CreateUser(User user);
+        List<User> FindAllUsers();
+        User FindUserById(string id);
+        User FindUserByName(string name);
+        public void UpdateUser(User newUser);
+        void DeleteUser(User user);
+        bool IdExist(string id);
 
-        public static List<User> FindAllUsers()
+    }
+    public class UserService : IUserService
+    {
+        private readonly IUserRepo _userRepo;
+
+        public UserService(IUserRepo userRepo)
         {
-            return Users;
+            _userRepo = userRepo;
         }
 
-        // Henter User om den eksisterer eller returnerer null
-        public static User? FindUserById(int id)
+        public void CreateUser(User user)
         {
-            return Users.FirstOrDefault(u => u.Id == id);
+            _userRepo.AddUser(user);
+
         }
 
-        public static void Create(User user)
+        public List<User> FindAllUsers()
         {
-            if (user != null && Users.Contains(user))
-                Users.Add(user);
+            return _userRepo.GetAllUsers();
         }
 
-        public static void Update(User user)
+        public User FindUserById(string id)
         {
-            if (user != null && Users.Contains(user))
-            {
-                Delete(user);
-                Create(user);
-            }
+            return _userRepo.GetUserById(id);
         }
-        public static void Delete(User user)
-        {
-            if (user != null)
-                Users.Remove(user);
 
+        public User FindUserByName(string name)
+        {
+            return _userRepo.GetUserByName(name);
+        }
+
+        public void UpdateUser(User newUser)
+        {
+            _userRepo.UpdateUserByUser(newUser);
+        }
+
+        public void DeleteUser(User user)
+        {
+            _userRepo.DeleteUser(user);
+        }
+        public bool UserExist(User user)
+        {
+            return _userRepo.IdExist(user.Id) && _userRepo.NameExist(user.Name);
+        }
+        public bool IdExist(string id)
+        {
+            return _userRepo.IdExist(id);
         }
     }
 }
