@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.Options;
 using utgiftsoversikt.Data;
+using utgiftsoversikt.Repos;
+using utgiftsoversikt.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,13 @@ builder.AddServiceDefaults();
 builder.AddAzureCosmosClient("db");
 
 builder.Services.AddDbContext<CosmosContext>(c => c.UseCosmos(builder.Configuration.GetConnectionString("cosmos"), "db"));
+
+//builder.Services.AddScoped<IUserRepo, UserRepo>();
+//builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+
 
 // Add services to the container.
 

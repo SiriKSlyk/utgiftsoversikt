@@ -1,22 +1,30 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using utgiftsoversikt.Data;
 using utgiftsoversikt.Models;
+using utgiftsoversikt.Repos;
+using utgiftsoversikt.Services;
 
 
 namespace Utgiftsoversikt.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController(CosmosContext context, ILogger<UsersController> logger) : ControllerBase
+    public class UsersController : ControllerBase
     {
-        //private readonly CosmosContext context = new CosmosContext();
+        private readonly IUserService _userService;
+        private readonly ILogger<UsersController> _logger;
+
+        public UsersController(IUserService userService, ILogger<UsersController> logger)
+        {
+            _userService = userService;
+            _logger = logger;
+        }
 
         // Return user with id
         [HttpGet("{name}", Name = "GetUser")]
         public ActionResult<User> Get(string name)
         {
-            var user = context.Users.FirstOrDefault(u => u.Name == name);
+            var user = _userService.FindUserByName(name);//context.Users?.FirstOrDefault(u => u.Name == name);
             if (user == null)
                 return NotFound();
             return Ok(user);
@@ -25,47 +33,44 @@ namespace Utgiftsoversikt.Controllers
         [HttpGet(Name = "GetUsers")]
         public ActionResult<List<User>> Get()
         {
-            // Create a demo user
-            var users = context.Users?.ToList();
+            
+
+            var users = _userService.FindAllUsers();
+
             return users;
         }
         // Create a new user
         [HttpPost(Name = "PostUsers")]
-        public async Task<IActionResult> Post(User user)
+        public IActionResult Post(User user)
 
         // Add a user to the database
         {
-            var newUser = new User() { Name = user.Name };
-            var resulat = context.Users?.Add(newUser);
-            await context.SaveChangesAsync();
-            return Ok(newUser.Id);
+            _userService.CreateUser(user);
+            return Ok(user.Id);
             
         }
         // Updates a user
-        /*[HttpPut("{id}", Name = "PutUsers")]
-        public ActionResult Put(string id, User user)
+        [HttpPut(Name = "PutUsers")]
+        public ActionResult Put(User newUser)
         {
-            if (user.Id != id)
+            if (!_userService.IdExist(newUser.Id))
                 return BadRequest();
-            var orgUser = Get(id);
-            if (orgUser == null)
-                return NotFound();
 
-            UserService.Update(user);
+            _userService.UpdateUser(newUser);
+
+            
             return NoContent();
         }
         // Delete a user
         [HttpDelete("{id}", Name = "DeleteUsers")]
         public ActionResult Delete(string id)
         {
-            System.Diagnostics.Debug.WriteLine($"Before: {UserService.FindAllUsers().Count()}");
-            var user = UserService.FindUserById(id);
+            var user = _userService.FindUserById(id);
             if (user == null)
                 return NotFound();
 
-            UserService.Delete(user);
-            System.Diagnostics.Debug.WriteLine($"After: {UserService.FindAllUsers().Count()}");
+            _userService.DeleteUser(user);
             return NoContent();
-        }*/
+        }
     }
 }
