@@ -48,7 +48,7 @@ jobs:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Initialize azd project
-        run: azd init --environment rg-utgiftsoversikt-2
+        run: azd init --environment rg-utgiftsoversikt-2 --template .
         #--environment utgiftsoversikt-2 #${{ env.AZURE_ENV_NAME }}
         shell: pwsh
         env:
