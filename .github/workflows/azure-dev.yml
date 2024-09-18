@@ -58,14 +58,22 @@ jobs:
       #  env:
       #    AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
 
+      #- name: Provision Infrastructure
+      #  working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
+      #  run: azd provision --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+      #  env:
+      #    AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
+
+      #- name: Deploy Application
+      #  working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
+      #  run: azd deploy --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+
       - name: Provision Infrastructure
-        working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
-        run: azd provision --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+        run: azd provision --no-prompt
         env:
           AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
 
       - name: Deploy Application
-        working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
-        run: azd deploy --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+        run: azd deploy --no-prompt
 
       
