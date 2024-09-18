@@ -1,0 +1,13 @@
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\bin\Release\net8.0\utgiftsoversikt.ServiceDefaults.deps.json
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\bin\Release\net8.0\utgiftsoversikt.ServiceDefaults.dll
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\bin\Release\net8.0\utgiftsoversikt.ServiceDefaults.pdb
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.AssemblyInfo.cs
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.sourcelink.json
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.dll
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\refint\utgiftsoversikt.ServiceDefaults.dll
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\utgiftsoversikt.ServiceDefaults.pdb
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.ServiceDefaults\obj\Release\net8.0\ref\utgiftsoversikt.ServiceDefaults.dll

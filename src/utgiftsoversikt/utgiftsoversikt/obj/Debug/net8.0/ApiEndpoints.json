@@ -1,0 +1,101 @@
+[
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.User, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetUsers"
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Post",
+    "RelativePath": "Users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "utgiftsoversikt.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "PostUsers"
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Put",
+    "RelativePath": "Users",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "utgiftsoversikt.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "PutUsers"
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "Users/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "DeleteUsers"
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "Users/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "utgiftsoversikt.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetUser"
+  }
+]
