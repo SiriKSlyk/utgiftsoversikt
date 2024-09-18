@@ -51,29 +51,23 @@ jobs:
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
-      #- name: Initialize azd project
-      #  run: azd init --environment rg-utgiftsoversikt-2 --from-code --no-prompt
+      - name: Initialize azd project
+        run: yes | azd init --environment rg-utgiftsoversikt-2 --from-code
       #  --environment utgiftsoversikt-2 #${{ env.AZURE_ENV_NAME }}
-      #  shell: pwsh
-      #  env:
-      #    AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
-
-      #- name: Provision Infrastructure
-      #  working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
-      #  run: azd provision --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
-      #  env:
-      #    AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
-
-      #- name: Deploy Application
-      #  working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
-      #  run: azd deploy --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+        shell: pwsh
+        env:
+          AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
 
       - name: Provision Infrastructure
-        run: azd provision --no-prompt
+        working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
+        run: azd provision --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
         env:
           AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
 
       - name: Deploy Application
-        run: azd deploy --no-prompt
+        working-directory: src/utgiftsoversikt/utgiftsoversikt.AppHost
+        run: azd deploy --environment ${{vars.AZURE_ENV_NAME}} --no-prompt
+
+      
 
       
