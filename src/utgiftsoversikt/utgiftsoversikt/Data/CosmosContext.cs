@@ -7,7 +7,7 @@ namespace utgiftsoversikt.Data;
 public class CosmosContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Models.User>? Users { get; set; }
-    public DbSet<Models.Expense>? Expenses { get; set; }
+    //public DbSet<Models.Expense>? Expenses { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -16,8 +16,8 @@ public class CosmosContext(DbContextOptions options) : DbContext(options)
             .ToContainer("Users") // To container
             .HasPartitionKey(u => u.Id); // Partition key
 
-        modelBuilder.Entity<Models.Expense>()
+        /*modelBuilder.Entity<Models.Expense>()
             .ToContainer("Expenses") // To container
-            .HasPartitionKey(u => u.Id); // Partition key
+            .HasPartitionKey(u => u.Id); // Partition key*/
     }
 }
