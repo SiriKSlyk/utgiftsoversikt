@@ -10,10 +10,10 @@ namespace utgiftsoversikt.Repos
         List<User> GetAllUsers();
         User GetUserById(string id);
         bool IdExist(string id);
-        bool NameExist(string name);
+        bool EmailExist(string email);
         void DeleteUser(User user);
         void UpdateUserByUser(User newUser);
-        User GetUserByName(string name);
+        User GetUserByEmail(string email);
 
     }
     
@@ -31,7 +31,7 @@ namespace utgiftsoversikt.Repos
         // Creates and give user a new uniqe id
         public void AddUser(User user)
         {
-            user = new User() { Name = user.Name };
+            user = new User() { First_name = user.First_name, Last_name = user.Last_name, Email = user.Email, Is_admin = false };
             _context.Users.Add(user);
             _context.SaveChanges();
         }
@@ -52,15 +52,18 @@ namespace utgiftsoversikt.Repos
         }
 
         // Endres senere til et unikt felt
-        public User GetUserByName(string name)
+        public User GetUserByEmail(string name)
         {
-            var user = _context.Users?.FirstOrDefault(u => u.Name.ToLower() == name.ToLower());
+            var user = _context.Users?.FirstOrDefault(u => u.Email.ToLower() == name.ToLower());
 
-            return user ?? new User() {Id = "", Name = "" };
+            return user;
         }
 
         public void UpdateUserByUser(User user)
         {
+            // forcing Is_admin to be false for all users
+            user.Is_admin = false;
+
 
             var trackedUser = _context.ChangeTracker.Entries<User>()
             .FirstOrDefault(e => e.Entity.Id == user.Id);
@@ -89,9 +92,9 @@ namespace utgiftsoversikt.Repos
             _context.SaveChangesAsync();
         }
 
-        public bool NameExist(string name)
+        public bool EmailExist(string email)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Name.ToLower() == name.ToLower());
+            var user = _context.Users.FirstOrDefault(u => u.Email.ToLower() == email.ToLower());
 
             return user != null;
 

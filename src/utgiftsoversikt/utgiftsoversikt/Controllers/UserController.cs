@@ -24,7 +24,7 @@ namespace Utgiftsoversikt.Controllers
         [HttpGet("{name}", Name = "GetUser")]
         public ActionResult<User> Get(string name)
         {
-            var user = _userService.FindUserByName(name);
+            var user = _userService.FindUserByEmail(name);
             if (user == null)
                 return NotFound();
             return Ok(user);
@@ -33,23 +33,17 @@ namespace Utgiftsoversikt.Controllers
         [HttpGet(Name = "GetUsers")]
         public ActionResult<List<User>> Get()
         {
-            
-
             var users = _userService.FindAllUsers();
-
             return users;
         }
         // Create a new user
         [HttpPost(Name = "PostUsers")]
         public IActionResult Post(User user)
-
-        // Add a user to the database
         {
             _userService.CreateUser(user);
-            return Ok(user.Id);
-            
+            return Ok(user.Id);            
         }
-        // Updates a user
+
         [HttpPut(Name = "PutUsers")]
         public ActionResult Put(User user)
         {
@@ -57,8 +51,6 @@ namespace Utgiftsoversikt.Controllers
                 return BadRequest();
 
             _userService.UpdateUser(user);
-
-            
             return NoContent();
         }
         // Delete a user

@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics.Eventing.Reader;
 using utgiftsoversikt.Models;
 using utgiftsoversikt.Repos;
 
@@ -10,10 +11,11 @@ namespace utgiftsoversikt.Services
         void CreateUser(User user);
         List<User> FindAllUsers();
         User FindUserById(string id);
-        User FindUserByName(string name);
-        public void UpdateUser(User newUser);
+        User FindUserByEmail(string email);
+        void UpdateUser(User user);
         void DeleteUser(User user);
         bool IdExist(string id);
+        bool EmailExist(string email);
 
     }
     public class UserService : IUserService
@@ -41,14 +43,14 @@ namespace utgiftsoversikt.Services
             return _userRepo.GetUserById(id);
         }
 
-        public User FindUserByName(string name)
+        public User FindUserByEmail(string email)
         {
-            return _userRepo.GetUserByName(name);
+            return _userRepo.GetUserByEmail(email);
         }
 
-        public void UpdateUser(User newUser)
+        public void UpdateUser(User user)
         {
-            _userRepo.UpdateUserByUser(newUser);
+            _userRepo.UpdateUserByUser(user);
         }
 
         public void DeleteUser(User user)
@@ -57,11 +59,17 @@ namespace utgiftsoversikt.Services
         }
         public bool UserExist(User user)
         {
-            return _userRepo.IdExist(user.Id) && _userRepo.NameExist(user.Name);
+            return _userRepo.IdExist(user.Id) && _userRepo.EmailExist(user.Email);
         }
         public bool IdExist(string id)
         {
             return _userRepo.IdExist(id);
+        }
+        public bool EmailExist(string email)
+        {
+
+            return _userRepo.EmailExist(email);
+
         }
     }
 }
