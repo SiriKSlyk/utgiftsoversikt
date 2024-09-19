@@ -10,8 +10,8 @@ namespace utgiftsoversikt.Services
     {
         void CreateUser(User user);
         List<User> FindAllUsers();
-        User FindUserById(string id);
-        User FindUserByEmail(string email);
+        User GetUserById(string id);
+        User GetUserByEmail(string email);
         void UpdateUser(User user);
         void DeleteUser(User user);
         bool IdExist(string id);
@@ -38,12 +38,12 @@ namespace utgiftsoversikt.Services
             return _userRepo.GetAllUsers();
         }
 
-        public User FindUserById(string id)
+        public User GetUserById(string id)
         {
             return _userRepo.GetUserById(id);
         }
 
-        public User FindUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
             return _userRepo.GetUserByEmail(email);
         }

@@ -13,10 +13,11 @@ builder.AddAzureCosmosClient("db");
 
 builder.Services.AddDbContext<CosmosContext>(c => c.UseCosmos(builder.Configuration.GetConnectionString("cosmos"), "db"));
 
-//builder.Services.AddScoped<IUserRepo, UserRepo>();
-//builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IExpenseRepo, ExpenseRepo>();
+builder.Services.AddScoped<IExpenseService, ExpenseService>();
 
 
 

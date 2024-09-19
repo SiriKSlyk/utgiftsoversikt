@@ -24,7 +24,7 @@ namespace Utgiftsoversikt.Controllers
         [HttpGet("{name}", Name = "GetUser")]
         public ActionResult<User> Get(string name)
         {
-            var user = _userService.FindUserByEmail(name);
+            var user = _userService.GetUserByEmail(name);
             if (user == null)
                 return NotFound();
             return Ok(user);
@@ -57,7 +57,7 @@ namespace Utgiftsoversikt.Controllers
         [HttpDelete("{id}", Name = "DeleteUsers")]
         public ActionResult Delete(string id)
         {
-            var user = _userService.FindUserById(id);
+            var user = _userService.GetUserById(id);
             if (user == null)
                 return NotFound();
 
