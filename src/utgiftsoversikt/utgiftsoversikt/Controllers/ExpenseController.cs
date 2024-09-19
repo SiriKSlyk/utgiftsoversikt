@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using utgiftsoversikt.Data;
 using utgiftsoversikt.Models;
 using utgiftsoversikt.Repos;
@@ -10,13 +10,13 @@ namespace utgiftsoversikt.Controllers
     [Route("[controller]")]
     public class ExpensesController : ControllerBase
     {
-        private readonly IExpenseService _expenseService;
+        //private readonly IExpenseService _expenseService;
         private readonly IUserService _userService;
         private readonly ILogger<ExpensesController> _logger;
 
         public ExpensesController(IExpenseService expenseService, IUserService userService, ILogger<ExpensesController> logger)
         {
-            _expenseService = expenseService;
+            //_expenseService = expenseService;
             _userService = userService;
             _logger = logger;
         }
@@ -68,3 +68,4 @@ namespace utgiftsoversikt.Controllers
 
     }
 }
+*/
