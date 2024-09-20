@@ -1,8 +1,150 @@
 [
   {
+    "ContainingType": "Utgiftsoversikt.Controllers.BudgetController",
+    "Method": "Put",
+    "RelativePath": "budget",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budget",
+        "Type": "utgiftsoversikt.Models.Budget",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.BudgetController",
+    "Method": "Delete",
+    "RelativePath": "budget",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budget",
+        "Type": "utgiftsoversikt.Models.Budget",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.BudgetController",
+    "Method": "Get",
+    "RelativePath": "budget/{budgetId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "budgetId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "utgiftsoversikt.Models.Budget",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.BudgetController",
+    "Method": "Post",
+    "RelativePath": "budget/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "budget",
+        "Type": "utgiftsoversikt.Models.Budget",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.BudgetController",
+    "Method": "GetAll",
+    "RelativePath": "budgets/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.Budget, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
+    "Method": "Post",
+    "RelativePath": "expense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "expense",
+        "Type": "utgiftsoversikt.Models.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
+    "Method": "Put",
+    "RelativePath": "expense",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expense",
+        "Type": "utgiftsoversikt.Models.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
     "Method": "Delete",
-    "RelativePath": "Expenses",
+    "RelativePath": "expense",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -13,13 +155,38 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [],
-    "EndpointName": "DeleteExpense"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
+    "Method": "Get",
+    "RelativePath": "expense/{expId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "utgiftsoversikt.Models.Expense",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
     "Method": "GetAll",
-    "RelativePath": "Expenses/{userId}",
+    "RelativePath": "expenses",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -27,7 +194,7 @@
       {
         "Name": "userId",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "month",
@@ -45,94 +212,12 @@
         ],
         "StatusCode": 200
       }
-    ],
-    "EndpointName": "GetExpenses"
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-    "Method": "Post",
-    "RelativePath": "Expenses/{userId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "expense",
-        "Type": "utgiftsoversikt.Models.Expense",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "EndpointName": "PostExpense"
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-    "Method": "Put",
-    "RelativePath": "Expenses/{userId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "expense",
-        "Type": "utgiftsoversikt.Models.Expense",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "EndpointName": "PutExpense"
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-    "Method": "Get",
-    "RelativePath": "Expenses/{userId}, {expId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "userId",
-        "Type": "",
-        "IsRequired": true
-      },
-      {
-        "Name": "expId",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "utgiftsoversikt.Models.Expense",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetExpense"
+    ]
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "GetAll",
-    "RelativePath": "Month",
+    "RelativePath": "month",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -153,13 +238,12 @@
         ],
         "StatusCode": 200
       }
-    ],
-    "EndpointName": "GetMonths"
+    ]
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "Post",
-    "RelativePath": "Month",
+    "RelativePath": "month",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -170,13 +254,12 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [],
-    "EndpointName": "PostMonth"
+    "ReturnTypes": []
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "Put",
-    "RelativePath": "Month",
+    "RelativePath": "month",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -187,13 +270,12 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [],
-    "EndpointName": "PutMonth"
+    "ReturnTypes": []
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "Delete",
-    "RelativePath": "Month",
+    "RelativePath": "month",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -204,13 +286,12 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [],
-    "EndpointName": "DeleteMonth"
+    "ReturnTypes": []
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "Get",
-    "RelativePath": "Month/{month}",
+    "RelativePath": "month/{month}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -231,13 +312,86 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Post",
+    "RelativePath": "user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "utgiftsoversikt.Models.User",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "GetMonth"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Put",
+    "RelativePath": "user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "utgiftsoversikt.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "user",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
     "Method": "Get",
-    "RelativePath": "Users",
+    "RelativePath": "user/{mail}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mail",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "utgiftsoversikt.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -252,85 +406,6 @@
         ],
         "StatusCode": 200
       }
-    ],
-    "EndpointName": "GetUsers"
-  },
-  {
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Post",
-    "RelativePath": "Users",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "utgiftsoversikt.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "EndpointName": "PostUser"
-  },
-  {
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Put",
-    "RelativePath": "Users",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "utgiftsoversikt.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "EndpointName": "PutUser"
-  },
-  {
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Delete",
-    "RelativePath": "Users/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [],
-    "EndpointName": "DeleteUser"
-  },
-  {
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Get",
-    "RelativePath": "Users/{name}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "utgiftsoversikt.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetUser"
+    ]
   }
 ]

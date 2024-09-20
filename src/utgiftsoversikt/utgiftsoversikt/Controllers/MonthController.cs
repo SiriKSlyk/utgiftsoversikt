@@ -18,7 +18,9 @@ namespace utgiftsoversikt.Controllers
         }
 
         // Return user with id
-        [HttpGet("{month}", Name = "GetMonth")]
+        //[HttpGet("{month}", Name = "GetMonth")]
+        [HttpGet]
+        [Route("/month/{month}")]
         public ActionResult<Month> Get(string month)
         {
             var result = _monthService.Get(month);
@@ -27,7 +29,9 @@ namespace utgiftsoversikt.Controllers
             return Ok(result);
         }
         // Return user with id
-        [HttpGet(Name = "GetMonths")]
+        //[HttpGet(Name = "GetMonths")]
+        [HttpGet]
+        [Route("/month")]
         public ActionResult<List<Month>> GetAll(string userId)
         {
             var result = _monthService.GetAll(userId);
@@ -37,21 +41,27 @@ namespace utgiftsoversikt.Controllers
         }
 
         // Create a new month
-        [HttpPost(Name = "PostMonth")]
+        //[HttpPost(Name = "PostMonth")]
+        [HttpPost]
+        [Route("/month")]
         public IActionResult Post(Month month)
         {
             _monthService.Create(month);
             return Ok(month.Id);
         }
 
-        [HttpPut(Name = "PutMonth")]
+        //[HttpPut(Name = "PutMonth")]
+        [HttpPut]
+        [Route("/month")]
         public IActionResult Put(Month month)
         {
             _monthService.Update(month);
             return Ok(month.Id);
         }
 
-        [HttpDelete(Name = "DeleteMonth")]
+        //[HttpDelete(Name = "DeleteMonth")]
+        [HttpDelete]
+        [Route("/month")]
         public IActionResult Delete(Month month)
         {
             _monthService.Delete(month);

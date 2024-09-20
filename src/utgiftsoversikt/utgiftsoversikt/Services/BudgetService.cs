@@ -28,6 +28,7 @@ namespace utgiftsoversikt.Services
 
         public void Create(Budget budget)
         {
+            budget.Id = Guid.NewGuid().ToString();
             _budgetRepo.Create(budget);
         }
 
