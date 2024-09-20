@@ -22,17 +22,21 @@ namespace utgiftsoversikt.Controllers
         }
 
 
-        [HttpGet("{userId}, {expId}", Name = "GetExpense")]
-        public ActionResult<Expense> Get(string id)
+        //[HttpGet("{expId}", Name = "GetExpense")]
+        [HttpGet]
+        [Route("/expense/{expId}")]
+        public ActionResult<Expense> Get(string expId)
         {
-            var expense = _expenseService.GetById(id);
+            var expense = _expenseService.GetById(expId);
             if (expense == null)
                 return NotFound();
             return Ok(expense);
         }
 
 
-        [HttpGet("{userId}", Name = "GetExpenses")]
+        //[HttpGet("{userId}", Name = "GetExpenses")]
+        [HttpGet]
+        [Route("/expenses")]
         public ActionResult<List<Expense>> GetAll(string userId, string month)
         {
             var expenses = _expenseService.GetAllByUserIdAndMonth(userId, month);
@@ -41,25 +45,30 @@ namespace utgiftsoversikt.Controllers
             return Ok(expenses);
         }
 
-        [HttpPost("{userId}", Name = "PostExpense")]
+        //[HttpPost("{userId}", Name = "PostExpense")]
+        [HttpPost]
+        [Route("/expense")]
         public IActionResult Post(string userId, Expense expense)
         {
-            
-            _expenseService.Create(userId, expense);
+            expense.UserId = userId;
+            _expenseService.Create(expense);
             return Ok(expense.Id);
         }
 
-        [HttpPut("{userId}", Name = "PutExpense")]
+        //[HttpPut(Name = "PutExpense")]
+        [HttpPut]
+        [Route("/expense")]
         public IActionResult Put(Expense expense)
         {
             _expenseService.Update(expense);
             return Ok();
         }
 
-        [HttpDelete(Name = "DeleteExpense")]
+        //[HttpDelete(Name = "DeleteExpense")]
+        [HttpDelete]
+        [Route("/expense")]
         public IActionResult Delete(Expense expense)
-        {
-
+        { 
             _expenseService.Delete(expense);
             return Ok();
         }

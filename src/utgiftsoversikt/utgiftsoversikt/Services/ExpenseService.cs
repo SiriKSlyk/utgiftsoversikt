@@ -9,7 +9,7 @@ namespace utgiftsoversikt.Services
 {
     public interface IExpenseService
     {
-        void Create(string userId, Expense expense);
+        void Create(Expense expense);
         List<Expense> GetAllByUserIdAndMonth(string userId, string month);
         Expense GetById(string id);
         public void Delete(Expense expense);
@@ -28,9 +28,9 @@ namespace utgiftsoversikt.Services
             _userRepo = userRepo;
         }
 
-        public void Create(string userId, Expense expense)
+        public void Create(Expense expense)
         {
-            expense.UserId = userId;
+            
             _expenseRepo.Create(expense);
         }
 
