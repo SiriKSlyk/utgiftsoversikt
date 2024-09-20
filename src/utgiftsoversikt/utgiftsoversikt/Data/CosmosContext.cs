@@ -21,19 +21,13 @@ public class CosmosContext(DbContextOptions options) : DbContext(options)
         modelBuilder.Entity<Expense>()
             .ToContainer("Expenses") // To container
             .HasPartitionKey(e => e.Id); // Partition key
-        
+
         modelBuilder.Entity<Budget>()
             .ToContainer("Budgets") // To container
             .HasPartitionKey(b => b.Id); // Partition key
-        
+
         modelBuilder.Entity<Month>()
             .ToContainer("Months") // To container
             .HasPartitionKey(m => m.Id); // Partition key
-
-        /*modelBuilder.Entity<Shop>()
-            .ToContainer("Shops") // To container
-            .HasPartitionKey(s => s.Id); // Partition key*/
-
-        //modelBuilder.Entity<Models.User>().OwnsMany(u => u.Expenses);
     }
 }
