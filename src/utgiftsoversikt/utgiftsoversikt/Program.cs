@@ -16,12 +16,16 @@ builder.Services.AddDbContext<CosmosContext>(c => c.UseCosmos(builder.Configurat
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IUserService, UserService>();
 
-builder.Services.AddScoped<IUserExpRepo, UserExpRepo>();
-builder.Services.AddScoped<IUserExpService, UserExpService>();
+builder.Services.AddScoped<IBudgetRepo, BudgetRepo>();
+builder.Services.AddScoped<IBudgetService, BudgetService>();
 
-builder.Services.AddScoped<IMonthlyExpService, MonthlyExpService>();
+builder.Services.AddScoped<IMonthRepo, MonthRepo>();
+builder.Services.AddScoped<IMonthService, MonthService>();
 
-builder.Services.AddScoped<IUserExpService, UserExpService>();
+builder.Services.AddScoped<IExpenseRepo, ExpenseRepo>();
+builder.Services.AddScoped<IExpenseService, ExpenseService>();
+
+
 
 
 

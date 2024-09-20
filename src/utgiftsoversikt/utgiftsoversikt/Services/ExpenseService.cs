@@ -9,55 +9,49 @@ namespace utgiftsoversikt.Services
 {
     public interface IExpenseService
     {
-        void CreateExpense();
-        List<Expense> GetAllExpensesByUserId();
-        Expense GetExpenseById();
-        void DeleteExpense();
-        bool IdExist();
-        bool UpdateExpense();
+        void Create(string userId, Expense expense);
+        List<Expense> GetAllByUserIdAndMonth(string userId, string month);
+        Expense GetById(string id);
+        public void Delete(Expense expense);
+        void Update(Expense expense);
 
     }
     public class ExpenseService : IExpenseService
     {
-        private readonly IUserExpRepo _userExpRepo;
+        private readonly IExpenseRepo _expenseRepo;
         private readonly IUserRepo _userRepo;
+        
 
-        public ExpenseService(IUserExpRepo userExpRepo, IUserRepo userRepo)
+        public ExpenseService(IExpenseRepo expenseRepo, IUserRepo userRepo)
         {
-            _userExpRepo = userExpRepo;
+            _expenseRepo = expenseRepo;
             _userRepo = userRepo;
         }
 
-        public void CreateExpense(string userId, string month, Expense expense)
+        public void Create(string userId, Expense expense)
         {
-            var userExp = _userExpRepo.GetUserExpByUserId(userId);
-            userExp.Months.FirstOrDefault(m => m.Month == month);
+            expense.UserId = userId;
+            _expenseRepo.Create(expense);
         }
 
-        public void DeleteExpense()
+        public void Delete(Expense expense)
         {
-            
+            _expenseRepo.Delete(expense);
         }
 
-        public List<Expense> GetAllExpensesByUserId()
+        public List<Expense> GetAllByUserIdAndMonth(string userId, string month)
         {
-            
-
+            return _expenseRepo.GetAll(userId, month);
         }
 
-        public Expense GetExpenseById()
+        public Expense GetById(string id)
         {
-           
+            return _expenseRepo.GetById(id);
         }
 
-        public bool IdExist()
+        public void Update(Expense expense)
         {
-            
-        }
-
-        public bool UpdateExpense()
-        {
-
+            _expenseRepo.Update(expense);
         }
     }
 }

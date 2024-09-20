@@ -21,19 +21,18 @@ namespace utgiftsoversikt.Services
     public class UserService : IUserService
     {
         private readonly IUserRepo _userRepo;
-        private readonly IUserExpRepo _userExpRepo;
 
-        public UserService(IUserRepo userRepo, IUserExpRepo userExpRepo)
+
+        public UserService(IUserRepo userRepo)
         {
             _userRepo = userRepo;
-            _userExpRepo = userExpRepo;
+
         }
 
         public void CreateUser(User user)
         {
             user = new User() { First_name = user.First_name, Last_name = user.Last_name, Email = user.Email, Is_admin = false };
             _userRepo.AddUser(user);
-            _userExpRepo.Add(user.Id); // Creating an empty Overview over all expenses for this user
 
         }
 
@@ -67,7 +66,6 @@ namespace utgiftsoversikt.Services
         public void DeleteUser(User user)
         {
             _userRepo.DeleteUser(user);
-            _userExpRepo.Delete(user.Id);
         }
         public bool UserExist(User user)
         {

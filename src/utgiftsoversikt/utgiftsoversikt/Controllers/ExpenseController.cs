@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using utgiftsoversikt.Data;
 using utgiftsoversikt.Models;
 using utgiftsoversikt.Repos;
@@ -10,7 +10,7 @@ namespace utgiftsoversikt.Controllers
     [Route("[controller]")]
     public class ExpensesController : ControllerBase
     {
-        //private readonly IExpenseService _expenseService;
+        private readonly IExpenseService _expenseService;
         private readonly IUserService _userService;
         private readonly ILogger<ExpensesController> _logger;
 
@@ -23,49 +23,47 @@ namespace utgiftsoversikt.Controllers
 
 
         [HttpGet("{userId}, {expId}", Name = "GetExpense")]
-        public ActionResult<Expense> Get(string userId, string expId)
+        public ActionResult<Expense> Get(string id)
         {
-            var expense = _expenseService.GetExpenseById(userId, expId);
+            var expense = _expenseService.GetById(id);
             if (expense == null)
                 return NotFound();
             return Ok(expense);
         }
 
 
-        [HttpGet("{userId}", Name = "GetAllExpense")]
-        public ActionResult<List<Expense>> Get(string userId)
+        [HttpGet("{userId}", Name = "GetExpenses")]
+        public ActionResult<List<Expense>> GetAll(string userId, string month)
         {
-            var expense = _expenseService.GetAllExpensesByUserId(userId);
-            if (expense == null)
+            var expenses = _expenseService.GetAllByUserIdAndMonth(userId, month);
+            if (expenses == null)
                 return NotFound();
-            return Ok(expense);
+            return Ok(expenses);
         }
 
         [HttpPost("{userId}", Name = "PostExpense")]
         public IActionResult Post(string userId, Expense expense)
         {
             
-            _expenseService.CreateExpense(userId, expense);
+            _expenseService.Create(userId, expense);
             return Ok(expense.Id);
         }
 
         [HttpPut("{userId}", Name = "PutExpense")]
-        public IActionResult Put(string userId, Expense expense)
+        public IActionResult Put(Expense expense)
         {
-
-            var result = _expenseService.UpdateExpense(userId, expense);
-            return result ? Ok() : BadRequest();
+            _expenseService.Update(expense);
+            return Ok();
         }
 
-        [HttpDelete("{userId}, {expId}", Name = "DeleteExpense")]
-        public IActionResult Delete(string userId, string expId)
+        [HttpDelete(Name = "DeleteExpense")]
+        public IActionResult Delete(Expense expense)
         {
 
-            _expenseService.DeleteExpense(userId, expId);
+            _expenseService.Delete(expense);
             return Ok();
         }
 
 
     }
 }
-*/

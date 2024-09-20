@@ -33,7 +33,7 @@ namespace utgiftsoversikt.Repos
         {
             
             _context.Users.Add(user);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public List<User> GetAllUsers()
