@@ -1,6 +1,6 @@
 ﻿
 using System.Diagnostics.Eventing.Reader;
-using System.Reflection.Metadata.Ecma335;
+
 using utgiftsoversikt.Models;
 using utgiftsoversikt.Repos;
 
@@ -9,18 +9,18 @@ namespace utgiftsoversikt.Services
 {
     public interface IExpenseService
     {
-        void CreateExpense(string userId, Expense expense);
-        List<Expense> GetAllExpensesByUserId(string id);
-        Expense GetExpenseById(string userId, string expId);
-        void DeleteExpense(string userId, string expId);
-        bool IdExist(string userId, string expId);
-        bool UpdateExpense(string userId, Expense expense);
+        void Create(string userId, Expense expense);
+        List<Expense> GetAllByUserIdAndMonth(string userId, string month);
+        Expense GetById(string id);
+        public void Delete(Expense expense);
+        void Update(Expense expense);
 
     }
     public class ExpenseService : IExpenseService
     {
         private readonly IExpenseRepo _expenseRepo;
         private readonly IUserRepo _userRepo;
+        
 
         public ExpenseService(IExpenseRepo expenseRepo, IUserRepo userRepo)
         {
@@ -28,55 +28,30 @@ namespace utgiftsoversikt.Services
             _userRepo = userRepo;
         }
 
-        public void CreateExpense(string userId, Expense expense)
+        public void Create(string userId, Expense expense)
         {
-            expense.Id = Guid.NewGuid().ToString();
-            var user = _userRepo.GetUserById(userId);
-            user.Expenses.Add(expense);
-            _userRepo.UpdateUserByUser(user);
+            expense.UserId = userId;
+            _expenseRepo.Create(expense);
         }
 
-        public void DeleteExpense(string userId, string expId)
+        public void Delete(Expense expense)
         {
-            var user = _userRepo.GetUserById(userId);
-            var expense = user.Expenses.FirstOrDefault(e => e.Id == expId);
-            user.Expenses.Remove(expense);
-            _userRepo.UpdateUserByUser(user);
+            _expenseRepo.Delete(expense);
         }
 
-        public List<Expense> GetAllExpensesByUserId(string id)
+        public List<Expense> GetAllByUserIdAndMonth(string userId, string month)
         {
-            var user = _userRepo.GetUserById(id);
-            return user.Expenses;
-
+            return _expenseRepo.GetAll(userId, month);
         }
 
-        public Expense GetExpenseById(string userId, string expId)
+        public Expense GetById(string id)
         {
-            var user = _userRepo.GetUserById(userId);
-            return user.Expenses.FirstOrDefault(e => e.Id == expId);
+            return _expenseRepo.GetById(id);
         }
 
-        public bool IdExist(string userId, string expId)
+        public void Update(Expense expense)
         {
-            return GetExpenseById(userId, expId) != null;
-        }
-
-        public bool UpdateExpense(string userId, Expense expense)
-        {
-            if (IdExist(userId, expense.Id) || true)
-            {
-                var user = _userRepo.GetUserById(userId);
-                var oldExpense = user.Expenses.FirstOrDefault(e => e.Id == expense.Id);
-                user.Expenses.Remove(oldExpense);
-                user.Expenses.Add(expense);
-                _userRepo.UpdateUserByUser(user);
-                return true;
-            }
-            return false;
-               
-            
-
+            _expenseRepo.Update(expense);
         }
     }
 }

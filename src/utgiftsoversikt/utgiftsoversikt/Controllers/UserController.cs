@@ -37,14 +37,14 @@ namespace Utgiftsoversikt.Controllers
             return users;
         }
         // Create a new user
-        [HttpPost(Name = "PostUsers")]
+        [HttpPost(Name = "PostUser")]
         public IActionResult Post(User user)
         {
             _userService.CreateUser(user);
             return Ok(user.Id);            
         }
 
-        [HttpPut(Name = "PutUsers")]
+        [HttpPut(Name = "PutUser")]
         public ActionResult Put(User user)
         {
             if (!_userService.IdExist(user.Id))
@@ -54,7 +54,7 @@ namespace Utgiftsoversikt.Controllers
             return NoContent();
         }
         // Delete a user
-        [HttpDelete("{id}", Name = "DeleteUsers")]
+        [HttpDelete("{id}", Name = "DeleteUser")]
         public ActionResult Delete(string id)
         {
             var user = _userService.GetUserById(id);

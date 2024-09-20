@@ -31,9 +31,9 @@ namespace utgiftsoversikt.Repos
         // Creates and give user a new uniqe id
         public void AddUser(User user)
         {
-            user = new User() { First_name = user.First_name, Last_name = user.Last_name, Email = user.Email, Is_admin = false };
+            
             _context.Users.Add(user);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public List<User> GetAllUsers()
@@ -61,9 +61,6 @@ namespace utgiftsoversikt.Repos
 
         public void UpdateUserByUser(User user)
         {
-            // forcing Is_admin to be false for all users
-            user.Is_admin = false;
-
 
             var trackedUser = _context.ChangeTracker.Entries<User>()
             .FirstOrDefault(e => e.Entity.Id == user.Id);

@@ -7,7 +7,9 @@ namespace utgiftsoversikt.Data;
 public class CosmosContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Models.User>? Users { get; set; }
-    public DbSet<Models.Expense>? Expenses { get; set; }
+    public DbSet<Models.Expense>? Expense { get; set; }
+    public DbSet<Models.Month>? Month { get; set; }
+    public DbSet<Models.Budget>? Budget { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -16,14 +18,16 @@ public class CosmosContext(DbContextOptions options) : DbContext(options)
             .ToContainer("Users") // To container
             .HasPartitionKey(u => u.Id); // Partition key
 
-        /*modelBuilder.Entity<Expense>()
+        modelBuilder.Entity<Expense>()
             .ToContainer("Expenses") // To container
-            .HasPartitionKey(e => e.Id); // Partition key*/
+            .HasPartitionKey(e => e.Id); // Partition key
 
-        /*modelBuilder.Entity<Shop>()
-            .ToContainer("Shops") // To container
-            .HasPartitionKey(s => s.Id); // Partition key*/
+        modelBuilder.Entity<Budget>()
+            .ToContainer("Budgets") // To container
+            .HasPartitionKey(b => b.Id); // Partition key
 
-        modelBuilder.Entity<Models.User>().OwnsMany(u => u.Expenses);
+        modelBuilder.Entity<Month>()
+            .ToContainer("Months") // To container
+            .HasPartitionKey(m => m.Id); // Partition key
     }
 }

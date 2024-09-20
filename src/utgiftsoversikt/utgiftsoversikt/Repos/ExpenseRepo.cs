@@ -1,19 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using utgiftsoversikt.Data;
 using utgiftsoversikt.Models;
-using utgiftsoversikt.Services;
 
 namespace utgiftsoversikt.Repos
 {
     public interface IExpenseRepo
     {
-        void AddExpense(Expense expense);
-        //List<Expense> GetAllExpensesBy(string id);
-        Expense GetExpenseById(string id);
-        bool IdExist(string id);
-        void DeleteExpense(Expense expense);
-        void UpdateExpense(Expense expense);
-
+        List<Expense> GetAll(string userId, string month);
+        Expense GetById(string id);
+        void Create(Expense expense);
+        void Update(Expense expense);
+        void Delete(Expense expense);
     }
 
 
@@ -27,67 +24,33 @@ namespace utgiftsoversikt.Repos
             _context = context;
         }
 
-        public void AddExpense(Expense expense)
+        public List<Expense> GetAll(string userId, string month)
         {
-
-            var newExpense = new Expense()
-            {
-                
-                Date = expense.Date,
-                Shop = expense.Shop,
-                Category = expense.Category,
-                Sum = expense.Sum,
-                Description = expense.Description //.Trim() == "" ? "No description" : expense.Description
-
-            };
-            _context.Expenses?.Add(newExpense);
-            _context.SaveChanges();
+            return _context.Expense?.Where(e => e.UserId == userId && e.Month == month).ToList();
         }
 
-        public void DeleteExpense(Expense expense)
+        public Expense GetById(string id)
         {
-            var trackedExpense = _context.ChangeTracker.Entries<Expense>()
-            .FirstOrDefault(e => e.Entity.Id == expense.Id);
-            if (trackedExpense != null)
-            {
-                // Remove trace
-                _context.Entry(trackedExpense.Entity).State = EntityState.Detached;
-            }
+            // User id for future authorication: Do this user own this expense
+            return _context.Expense?.FirstOrDefault(e => e.Id == id);
+        }
 
-            _context.Expenses?.Remove(expense);
+        public void Create(Expense expense)
+        {
+            _context.Expense?.Add(expense);
             _context.SaveChangesAsync();
         }
 
-        /*public List<Expense> GetAllExpenses(string gid)
+        public void Update(Expense expense)
         {
-            return _context.Expenses?.ToList();
-        }*/
-
-        public Expense GetExpenseById(string id)
-        {
-            return _context.Expenses?.FirstOrDefault(e => e.Id == id);
-        }
-
-        public bool IdExist(string id)
-        {
-            return _context.Expenses?.FirstOrDefault(e => e.Id == id) != null;
-        }
-
-        public void UpdateExpense(Expense expense)
-        {
-
-            var trackedUser = _context.ChangeTracker.Entries<Expense>()
-            .FirstOrDefault(e => e.Entity.Id == expense.Id);
-            if (trackedUser != null)
-            {
-                // Fjern den eksisterende sporing
-                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
-            }
-
-            _context.Expenses?.Update(expense);
+            _context.Expense?.Update(expense);
             _context.SaveChangesAsync();
         }
-
+        public void Delete(Expense expense)
+        {
+            _context?.Expense?.Remove(expense);
+            _context.SaveChangesAsync();
+        }
 
     }
 }
