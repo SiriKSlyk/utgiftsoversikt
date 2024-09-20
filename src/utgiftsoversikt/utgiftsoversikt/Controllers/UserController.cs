@@ -21,30 +21,34 @@ namespace Utgiftsoversikt.Controllers
         }
 
         // Return user with id
-        [HttpGet("{name}", Name = "GetUser")]
-        public ActionResult<User> Get(string name)
+        [HttpGet]
+        [Route("/user/{mail}")]
+        public ActionResult<User> Get(string mail)
         {
-            var user = _userService.GetUserByEmail(name);
+            var user = _userService.GetUserByEmail(mail);
             if (user == null)
                 return NotFound();
             return Ok(user);
         }
         // Returns all users
-        [HttpGet(Name = "GetUsers")]
+        [HttpGet]//(Name = "GetUsers")]
+        [Route("/users")]
         public ActionResult<List<User>> Get()
         {
             var users = _userService.FindAllUsers();
             return users;
         }
         // Create a new user
-        [HttpPost(Name = "PostUsers")]
+        [HttpPost]//(Name = "PostUser")]
+        [Route("/user")]
         public IActionResult Post(User user)
         {
             _userService.CreateUser(user);
             return Ok(user.Id);            
         }
 
-        [HttpPut(Name = "PutUsers")]
+        [HttpPut]//(Name = "PutUser")]
+        [Route("/user")]
         public ActionResult Put(User user)
         {
             if (!_userService.IdExist(user.Id))
@@ -54,7 +58,8 @@ namespace Utgiftsoversikt.Controllers
             return NoContent();
         }
         // Delete a user
-        [HttpDelete("{id}", Name = "DeleteUsers")]
+        [HttpDelete]//("{id}", Name = "DeleteUser")]
+        [Route("/user")]
         public ActionResult Delete(string id)
         {
             var user = _userService.GetUserById(id);

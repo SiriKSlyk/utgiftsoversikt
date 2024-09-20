@@ -16,8 +16,17 @@ builder.Services.AddDbContext<CosmosContext>(c => c.UseCosmos(builder.Configurat
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddScoped<IBudgetRepo, BudgetRepo>();
+builder.Services.AddScoped<IBudgetService, BudgetService>();
+
+builder.Services.AddScoped<IMonthRepo, MonthRepo>();
+builder.Services.AddScoped<IMonthService, MonthService>();
+
 builder.Services.AddScoped<IExpenseRepo, ExpenseRepo>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
+
+
+
 
 
 
@@ -33,7 +42,7 @@ var app = builder.Build();
 app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || true)
 {
     app.UseSwagger();
     app.UseSwaggerUI();

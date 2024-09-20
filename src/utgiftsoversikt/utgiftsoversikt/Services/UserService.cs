@@ -22,13 +22,16 @@ namespace utgiftsoversikt.Services
     {
         private readonly IUserRepo _userRepo;
 
+
         public UserService(IUserRepo userRepo)
         {
             _userRepo = userRepo;
+
         }
 
         public void CreateUser(User user)
         {
+            user = new User() { First_name = user.First_name, Last_name = user.Last_name, Email = user.Email, Is_admin = false };
             _userRepo.AddUser(user);
 
         }
@@ -50,6 +53,13 @@ namespace utgiftsoversikt.Services
 
         public void UpdateUser(User user)
         {
+            var oldUser = _userRepo.GetUserById(user.Id);
+
+            // Forcing values not to change
+            user.Id = oldUser.Id;
+            user.Is_admin = oldUser.Is_admin;
+            user.BudgetId = oldUser.BudgetId;
+
             _userRepo.UpdateUserByUser(user);
         }
 

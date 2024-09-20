@@ -16,52 +16,60 @@ namespace utgiftsoversikt.Controllers
 
         public ExpensesController(IExpenseService expenseService, IUserService userService, ILogger<ExpensesController> logger)
         {
-            _expenseService = expenseService;
+            //_expenseService = expenseService;
             _userService = userService;
             _logger = logger;
         }
 
 
-        [HttpGet("{userId}, {expId}", Name = "GetExpense")]
-        public ActionResult<Expense> Get(string userId, string expId)
+        //[HttpGet("{expId}", Name = "GetExpense")]
+        [HttpGet]
+        [Route("/expense/{expId}")]
+        public ActionResult<Expense> Get(string expId)
         {
-            var expense = _expenseService.GetExpenseById(userId, expId);
+            var expense = _expenseService.GetById(expId);
             if (expense == null)
                 return NotFound();
             return Ok(expense);
         }
 
 
-        [HttpGet("{userId}", Name = "GetAllExpense")]
-        public ActionResult<List<Expense>> Get(string userId)
+        //[HttpGet("{userId}", Name = "GetExpenses")]
+        [HttpGet]
+        [Route("/expenses")]
+        public ActionResult<List<Expense>> GetAll(string userId, string month)
         {
-            var expense = _expenseService.GetAllExpensesByUserId(userId);
-            if (expense == null)
+            var expenses = _expenseService.GetAllByUserIdAndMonth(userId, month);
+            if (expenses == null)
                 return NotFound();
-            return Ok(expense);
+            return Ok(expenses);
         }
 
-        [HttpPost("{userId}", Name = "PostExpense")]
+        //[HttpPost("{userId}", Name = "PostExpense")]
+        [HttpPost]
+        [Route("/expense")]
         public IActionResult Post(string userId, Expense expense)
         {
-            
-            _expenseService.CreateExpense(userId, expense);
+            expense.UserId = userId;
+            _expenseService.Create(expense);
             return Ok(expense.Id);
         }
 
-        [HttpPut("{userId}", Name = "PutExpense")]
-        public IActionResult Put(string userId, Expense expense)
+        //[HttpPut(Name = "PutExpense")]
+        [HttpPut]
+        [Route("/expense")]
+        public IActionResult Put(Expense expense)
         {
-
-            var result = _expenseService.UpdateExpense(userId, expense);
-            return result ? Ok() : BadRequest();
+            _expenseService.Update(expense);
+            return Ok();
         }
 
-        [HttpDelete("{userId}, {expId}", Name = "DeleteExpense")]
-        public IActionResult Delete(string userId, string expId)
-        {
-
-            _expenseService.DeleteExpense(userId, expId);
+        //[HttpDelete(Name = "DeleteExpense")]
+        [HttpDelete]
+        [Route("/expense")]
+        public IActionResult Delete(Expense expense)
+        { 
+            _expenseService.Delete(expense);
             return Ok();
         }
 
