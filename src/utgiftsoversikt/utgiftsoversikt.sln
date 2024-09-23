@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "utgiftsoversikt.AppHost", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "utgiftsoversikt.ServiceDefaults", "utgiftsoversikt.ServiceDefaults\utgiftsoversikt.ServiceDefaults.csproj", "{D31EBD70-FA99-47A3-B9D0-703E00361EE2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactApp1.Server", "..\..\..\..\FullStack\ReactApp1\ReactApp1.Server\ReactApp1.Server.csproj", "{56A5DE44-0A44-4B4A-AF0B-5B4A13280B38}"
-EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactapp1.client", "..\..\..\..\FullStack\ReactApp1\reactapp1.client\reactapp1.client.esproj", "{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactApp10.Server", "..\..\..\..\FullStack\ReactApp10\ReactApp10.Server\ReactApp10.Server.csproj", "{0B8B003E-3502-4972-A462-B3377827634D}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "frontend", "frontend\frontend.esproj", "{B7B565A1-72EF-4C95-870C-853F920115D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,20 +31,18 @@ Global
 		{D31EBD70-FA99-47A3-B9D0-703E00361EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31EBD70-FA99-47A3-B9D0-703E00361EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D31EBD70-FA99-47A3-B9D0-703E00361EE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56A5DE44-0A44-4B4A-AF0B-5B4A13280B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56A5DE44-0A44-4B4A-AF0B-5B4A13280B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56A5DE44-0A44-4B4A-AF0B-5B4A13280B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56A5DE44-0A44-4B4A-AF0B-5B4A13280B38}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FA6BB57-9A80-4721-9363-FC5AEB30AC2B}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{0B8B003E-3502-4972-A462-B3377827634D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B8B003E-3502-4972-A462-B3377827634D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B8B003E-3502-4972-A462-B3377827634D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B8B003E-3502-4972-A462-B3377827634D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B565A1-72EF-4C95-870C-853F920115D7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

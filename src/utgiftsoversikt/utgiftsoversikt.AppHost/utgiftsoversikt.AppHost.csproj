@@ -17,8 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\FullStack\ReactApp10\ReactApp10.Server\ReactApp10.Server.csproj" />
-    <ProjectReference Include="..\..\..\..\..\FullStack\ReactApp1\ReactApp1.Server\ReactApp1.Server.csproj" />
+    <ProjectReference Include="..\frontend\frontend.esproj" />
     <ProjectReference Include="..\utgiftsoversikt\utgiftsoversikt.csproj" />
   </ItemGroup>
 

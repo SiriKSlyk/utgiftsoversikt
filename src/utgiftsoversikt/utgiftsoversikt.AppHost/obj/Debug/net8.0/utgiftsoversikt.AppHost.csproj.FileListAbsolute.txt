@@ -232,3 +232,4 @@ C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\u
 C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost\obj\Debug\net8.0\utgiftsoversikt.AppHost.pdb
 C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost\obj\Debug\net8.0\utgiftsoversikt.AppHost.genruntimeconfig.cache
 C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost\obj\Debug\net8.0\ref\utgiftsoversikt.AppHost.dll
+C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost\obj\Debug\net8.0\Aspire\references\frontend.ProjectMetadata.g.cs
