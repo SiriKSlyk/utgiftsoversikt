@@ -106,27 +106,6 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-    "Method": "Post",
-    "RelativePath": "expense",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "expense",
-        "Type": "utgiftsoversikt.Models.Expense",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
     "Method": "Put",
     "RelativePath": "expense",
     "HttpMethod": "PUT",
@@ -185,8 +164,29 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
+    "Method": "Post",
+    "RelativePath": "expense/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "expense",
+        "Type": "utgiftsoversikt.Models.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
     "Method": "GetAll",
-    "RelativePath": "expenses",
+    "RelativePath": "expenses/{userId}/{month}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -194,43 +194,17 @@
       {
         "Name": "userId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "month",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.Expense, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "GetAll",
-    "RelativePath": "month",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.Month, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -290,12 +264,43 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "Get",
-    "RelativePath": "month/{month}",
+    "Method": "GetAll",
+    "RelativePath": "month/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.Month, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
+    "Method": "Get",
+    "RelativePath": "month/{userId}/{month}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
       {
         "Name": "month",
         "Type": "System.String",

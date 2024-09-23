@@ -1,20 +1,19 @@
-﻿using Microsoft.Azure.Cosmos;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using utgiftsoversikt.Models;
 
 namespace utgiftsoversikt.Data;
 
 public class CosmosContext(DbContextOptions options) : DbContext(options)
 {
-    public DbSet<Models.User>? Users { get; set; }
-    public DbSet<Models.Expense>? Expense { get; set; }
-    public DbSet<Models.Month>? Month { get; set; }
-    public DbSet<Models.Budget>? Budget { get; set; }
+    public DbSet<User>? Users { get; set; }
+    public DbSet<Expense>? Expenses { get; set; }
+    public DbSet<Month>? Month { get; set; }
+    public DbSet<Budget>? Budget { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Models.User>()
+        modelBuilder.Entity<User>()
             .ToContainer("Users") // To container
             .HasPartitionKey(u => u.Id); // Partition key
 

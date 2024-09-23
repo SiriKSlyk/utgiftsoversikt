@@ -5070,11 +5070,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\utgiftsoversikt.AppHost.csproj",
+      "projectUniqueName": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\utgiftsoversikt.AppHost.csproj",
       "projectName": "utgiftsoversikt.AppHost",
-      "projectPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\utgiftsoversikt.AppHost.csproj",
+      "projectPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\utgiftsoversikt.AppHost.csproj",
       "packagesPath": "C:\\Users\\siri.slyk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\obj\\",
+      "outputPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\siri.slyk\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,7 +16,7 @@ namespace utgiftsoversikt.Controllers
 
         public ExpensesController(IExpenseService expenseService, IUserService userService, ILogger<ExpensesController> logger)
         {
-            //_expenseService = expenseService;
+            _expenseService = expenseService;
             _userService = userService;
             _logger = logger;
         }
@@ -36,7 +36,7 @@ namespace utgiftsoversikt.Controllers
 
         //[HttpGet("{userId}", Name = "GetExpenses")]
         [HttpGet]
-        [Route("/expenses")]
+        [Route("/expenses/{userId}/{month}")]
         public ActionResult<List<Expense>> GetAll(string userId, string month)
         {
             var expenses = _expenseService.GetAllByUserIdAndMonth(userId, month);
@@ -47,9 +47,10 @@ namespace utgiftsoversikt.Controllers
 
         //[HttpPost("{userId}", Name = "PostExpense")]
         [HttpPost]
-        [Route("/expense")]
+        [Route("/expense/{userId}")]
         public IActionResult Post(string userId, Expense expense)
         {
+            expense.Id = Guid.NewGuid().ToString();
             expense.UserId = userId;
             _expenseService.Create(expense);
             return Ok(expense.Id);
@@ -60,8 +61,9 @@ namespace utgiftsoversikt.Controllers
         [Route("/expense")]
         public IActionResult Put(Expense expense)
         {
-            _expenseService.Update(expense);
-            return Ok();
+            //Must include modification of sum when changing an expense
+            var res = _expenseService.Update(expense);
+            return res ? Ok() : BadRequest();
         }
 
         //[HttpDelete(Name = "DeleteExpense")]

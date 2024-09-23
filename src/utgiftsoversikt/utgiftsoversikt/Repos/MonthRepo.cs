@@ -7,11 +7,14 @@ namespace utgiftsoversikt.Repos
     public interface IMonthRepo
     {
         List<Month> GetAll(string userId);
-        Month GetById(string month);
+        Month GetByUserIdAndMonth(string userId, string month);
         List<Month> GetAllInYear(string userId, string year);
-        void Create(Month budget);
-        void Update(Month budget);
-        void Delete(Month budget);
+        bool Create(Month budget);
+        bool Update(Month budget);
+        bool Delete(Month budget);
+        void RemoveTrace(Month month);
+
+        Task<bool> Write();
 
     }
 
@@ -30,10 +33,10 @@ namespace utgiftsoversikt.Repos
             return result != null ? result : new List<Month>();
         }
 
-        public Month GetById(string month)
+        public Month GetByUserIdAndMonth(string userId, string month)
         {
 
-            return _context.Month?.FirstOrDefault(m => m.MonthYear == month);
+            return _context.Month?.FirstOrDefault(m => m.UserId == userId && m.MonthYear == month);
         }
 
         public List<Month> GetAllInYear(string userId, string year)
@@ -43,23 +46,40 @@ namespace utgiftsoversikt.Repos
                 .ToList();
         }
 
-        public void Create(Month month)
+        public bool Create(Month month)
         {
             month.Id = Guid.NewGuid().ToString();
             _context.Month?.Add(month);
-            _context.SaveChangesAsync();
+            return true;
         }
 
-        public void Update(Month month)
+        public bool Update(Month month)
         {
+
             _context.Month?.Update(month);
-            _context.SaveChangesAsync();
+            return true;
         }
-        public void Delete(Month month)
+        public bool Delete(Month month)
         {
+
             _context.Month?.Remove(month);
-            _context.SaveChangesAsync();
+            return true;
         }
 
+        public void RemoveTrace(Month month)
+        {
+            var trackedMonth = _context.ChangeTracker.Entries<Month>()
+            .FirstOrDefault(e => e.Entity.Id == month.Id);
+
+            if (trackedMonth != null)
+            {
+                // Fjern den eksisterende sporing
+                _context.Entry(trackedMonth.Entity).State = EntityState.Detached;
+            }
+        }
+        public async Task<bool> Write()
+        {
+            return await _context.SaveChangesAsync() > 0;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using utgiftsoversikt.Data;
 using utgiftsoversikt.Models;
+using utgiftsoversikt.utils;
 
 namespace utgiftsoversikt.Repos
 {
@@ -8,9 +9,11 @@ namespace utgiftsoversikt.Repos
     {
         List<Expense> GetAll(string userId, string month);
         Expense GetById(string id);
-        void Create(Expense expense);
-        void Update(Expense expense);
-        void Delete(Expense expense);
+        bool Create(Expense expense);
+        bool Update(Expense expense);
+        bool Delete(Expense expense);
+        void RemoveTrace(Expense exp);
+        Task<bool> Write();
     }
 
 
@@ -26,30 +29,51 @@ namespace utgiftsoversikt.Repos
 
         public List<Expense> GetAll(string userId, string month)
         {
-            return _context.Expense?.Where(e => e.UserId == userId && e.Month == month).ToList();
+            return _context.Expenses.Where(e => e.UserId == userId && e.Month == month).ToList();
         }
 
         public Expense GetById(string id)
         {
             // User id for future authorication: Do this user own this expense
-            return _context.Expense?.FirstOrDefault(e => e.Id == id);
+            return _context.Expenses?.FirstOrDefault(e => e.Id == id);
         }
 
-        public void Create(Expense expense)
+        public bool Create(Expense expense)
         {
-            _context.Expense?.Add(expense);
-            _context.SaveChangesAsync();
+            _context.Expenses?.Add(expense);
+            return true;
+
         }
 
-        public void Update(Expense expense)
+        public bool Update(Expense expense)
         {
-            _context.Expense?.Update(expense);
-            _context.SaveChangesAsync();
+            _context.Expenses?.Update(expense);
+
+            return true;
         }
-        public void Delete(Expense expense)
+        public bool Delete(Expense expense)
         {
-            _context?.Expense?.Remove(expense);
-            _context.SaveChangesAsync();
+
+            _context?.Expenses?.Remove(expense);
+
+            return true;
+        }
+
+        public void RemoveTrace(Expense exp)
+        {
+            var trackedExp = _context.ChangeTracker.Entries<Expense>()
+            .FirstOrDefault(e => e.Entity.Id == exp.Id);
+
+            if (trackedExp != null)
+            {
+                // Fjern den eksisterende sporing
+                _context.Entry(trackedExp.Entity).State = EntityState.Detached;
+            }
+        }
+
+        public async Task<bool> Write()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
 
     }

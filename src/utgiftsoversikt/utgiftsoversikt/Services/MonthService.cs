@@ -6,12 +6,12 @@ namespace utgiftsoversikt.Services
 {
     public interface IMonthService
     {
-        void Create(Month month);
-        Month Get(string month);
+        bool Create(Month month);
+        Month Get(string userId, string month);
         List<Month> GetAll(string userId);
         List<Month> GetAllInYear(string userId, string year);
-        void Update(Month month);
-        void Delete(Month month);
+        bool Update(Month month);
+        bool Delete(Month month);
 
     }
     public class MonthService : IMonthService
@@ -25,13 +25,14 @@ namespace utgiftsoversikt.Services
             _userRepo = userRepo;
         }
 
-        public void Create(Month month)
+        public bool Create(Month month)
         {
             _monthRepo.Create(month);
+            return _monthRepo.Write().Result;
         }
-        public Month Get(string month)
+        public Month Get(string userId, string month)
         {
-            return _monthRepo.GetById(month);
+            return _monthRepo.GetByUserIdAndMonth(userId, month);
         }
         public List<Month> GetAll(string userId)
         {
@@ -46,13 +47,17 @@ namespace utgiftsoversikt.Services
             return new List<Month>();
 
         }
-        public void Update(Month month)
+        public bool Update(Month month)
         {
+            _monthRepo.RemoveTrace(month);
             _monthRepo.Update(month);
+            return _monthRepo.Write().Result;
         }
-        public void Delete(Month month)
+        public bool Delete(Month month)
         {
+            _monthRepo.RemoveTrace(month);
             _monthRepo.Delete(month);
+            return _monthRepo.Write().Result;
         }
     }
 }

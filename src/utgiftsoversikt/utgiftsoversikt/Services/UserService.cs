@@ -8,12 +8,12 @@ namespace utgiftsoversikt.Services
 {
     public interface IUserService
     {
-        void CreateUser(User user);
+        bool CreateUser(User user);
         List<User> FindAllUsers();
         User GetUserById(string id);
         User GetUserByEmail(string email);
-        void UpdateUser(User user);
-        void DeleteUser(User user);
+        bool UpdateUser(User user);
+        bool DeleteUser(User user);
         bool IdExist(string id);
         bool EmailExist(string email);
 
@@ -29,10 +29,11 @@ namespace utgiftsoversikt.Services
 
         }
 
-        public void CreateUser(User user)
+        public bool CreateUser(User user)
         {
             user = new User() { First_name = user.First_name, Last_name = user.Last_name, Email = user.Email, Is_admin = false };
             _userRepo.AddUser(user);
+            return _userRepo.Write().Result;
 
         }
 
@@ -51,7 +52,7 @@ namespace utgiftsoversikt.Services
             return _userRepo.GetUserByEmail(email);
         }
 
-        public void UpdateUser(User user)
+        public bool UpdateUser(User user)
         {
             var oldUser = _userRepo.GetUserById(user.Id);
 
@@ -59,13 +60,15 @@ namespace utgiftsoversikt.Services
             user.Id = oldUser.Id;
             user.Is_admin = oldUser.Is_admin;
             user.BudgetId = oldUser.BudgetId;
-
             _userRepo.UpdateUserByUser(user);
+
+            return _userRepo.Write().Result;
         }
 
-        public void DeleteUser(User user)
+        public bool DeleteUser(User user)
         {
             _userRepo.DeleteUser(user);
+            return _userRepo.Write().Result;
         }
         public bool UserExist(User user)
         {

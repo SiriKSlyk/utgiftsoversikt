@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics.Eventing.Reader;
-
-using utgiftsoversikt.Models;
+﻿using utgiftsoversikt.Models;
 using utgiftsoversikt.Repos;
 
 
@@ -9,11 +6,12 @@ namespace utgiftsoversikt.Services
 {
     public interface IBudgetService
     {
-        void Create(Budget budget);
+        bool Create(Budget budget);
         List<Budget> GetAll(string userId);
         Budget GetById(string id);
-        public void Delete(Budget budget);
-        void Update(Budget budget);
+        bool Delete(Budget budget);
+        bool Update(Budget budget);
+
 
     }
     public class BudgetService : IBudgetService
@@ -26,15 +24,17 @@ namespace utgiftsoversikt.Services
             _budgetRepo = budgetRepo;
         }
 
-        public void Create(Budget budget)
+        public bool Create(Budget budget)
         {
             budget.Id = Guid.NewGuid().ToString();
             _budgetRepo.Create(budget);
+            return _budgetRepo.Write().Result;
         }
 
-        public void Delete(Budget budget)
+        public bool Delete(Budget budget)
         {
             _budgetRepo.Delete(budget);
+            return _budgetRepo.Write().Result;
         }
 
         public List<Budget> GetAll(string userId)
@@ -47,9 +47,12 @@ namespace utgiftsoversikt.Services
             return _budgetRepo.GetById(id);
         }
 
-        public void Update(Budget budget)
+        public bool Update(Budget budget)
         {
+            _budgetRepo.RemoveTrace(budget);
             _budgetRepo.Update(budget);
+            return _budgetRepo.Write().Result;
         }
+
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace utgiftsoversikt.Models
+﻿namespace utgiftsoversikt.Models
 {
     public class Expense
     {

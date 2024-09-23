@@ -8,5 +8,5 @@ namespace Projects;
 public class utgiftsoversikt_AppHost
 {
     private utgiftsoversikt_AppHost() { }
-    public static string ProjectPath => """C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost""";
+    public static string ProjectPath => """C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt.AppHost""";
 }
