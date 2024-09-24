@@ -49,7 +49,7 @@ jobs:
             --tenant-id "$($info.tenantId)"
         shell: pwsh
         env:
-          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          AZURE_CREDENTIALS: ${{ vars.AZURE_CREDENTIALS }}
 
       #- name: Initialize azd project
       #  run: azd init --environment rg-utgiftsoversikt-2 --from-code --no-prompt

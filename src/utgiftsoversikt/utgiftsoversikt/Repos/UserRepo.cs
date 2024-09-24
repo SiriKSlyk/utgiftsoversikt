@@ -6,14 +6,16 @@ namespace utgiftsoversikt.Repos
 {
     public interface IUserRepo
     {
-        void AddUser(User user);
+        bool AddUser(User user);
         List<User> GetAllUsers();
         User GetUserById(string id);
         bool IdExist(string id);
         bool EmailExist(string email);
-        void DeleteUser(User user);
-        void UpdateUserByUser(User newUser);
+        bool DeleteUser(User user);
+        bool UpdateUserByUser(User newUser);
         User GetUserByEmail(string email);
+        void RemoveTrace(User user);
+        Task<bool> Write();
 
     }
     
@@ -29,11 +31,15 @@ namespace utgiftsoversikt.Repos
         }
 
         // Creates and give user a new uniqe id
-        public void AddUser(User user)
+        public bool AddUser(User user)
         {
             
             _context.Users.Add(user);
+<<<<<<< HEAD
             _context.SaveChangesAsync();
+=======
+            return Write().Result;
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         }
 
         public List<User> GetAllUsers()
@@ -59,9 +65,10 @@ namespace utgiftsoversikt.Repos
             return user;
         }
 
-        public void UpdateUserByUser(User user)
+        public bool UpdateUserByUser(User user)
         {
 
+<<<<<<< HEAD
             var trackedUser = _context.ChangeTracker.Entries<User>()
             .FirstOrDefault(e => e.Entity.Id == user.Id);
             if (trackedUser != null)
@@ -69,24 +76,21 @@ namespace utgiftsoversikt.Repos
                 // Fjern den eksisterende sporing
                 _context.Entry(trackedUser.Entity).State = EntityState.Detached;
             }
+=======
+            RemoveTrace(user);
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
 
             _context.Users?.Update(user);
-            _context.SaveChangesAsync();
+            return Write().Result;
 
         }
 
-        public void DeleteUser(User user)
+        public bool DeleteUser(User user)
         {
-            var trackedUser = _context.ChangeTracker.Entries<User>()
-            .FirstOrDefault(e => e.Entity.Id == user.Id);
-            if (trackedUser != null)
-            {
-                // Fjern den eksisterende sporing
-                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
-            }
+            RemoveTrace(user);
 
             _context.Users?.Remove(user);
-            _context.SaveChangesAsync();
+            return Write().Result;
         }
 
         public bool EmailExist(string email)
@@ -103,6 +107,21 @@ namespace utgiftsoversikt.Repos
 
             return user != null;
 
+        }
+        public void RemoveTrace(User user)
+        {
+            var trackedUser = _context.ChangeTracker.Entries<User>()
+            .FirstOrDefault(e => e.Entity.Id == user.Id);
+            
+            if (trackedUser != null)
+            {
+                // Fjern den eksisterende sporing
+                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
+            }
+        }
+        public async Task<bool> Write()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

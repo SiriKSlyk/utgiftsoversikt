@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj": {}
+    "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj": {}
   },
   "projects": {
-    "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj": {
+    "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj",
+        "projectUniqueName": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj",
         "projectName": "utgiftsoversikt.ServiceDefaults",
-        "projectPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj",
+        "projectPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\utgiftsoversikt.ServiceDefaults.csproj",
         "packagesPath": "C:\\Users\\siri.slyk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\obj\\",
+        "outputPath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.ServiceDefaults\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\siri.slyk\\AppData\\Roaming\\NuGet\\NuGet.Config",

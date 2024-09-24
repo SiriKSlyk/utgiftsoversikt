@@ -18,14 +18,18 @@ using System.Reflection;
     "ls\\ext\\")]
 [assembly: System.Reflection.AssemblyMetadata("dcpbinpath", "C:\\Users\\siri.slyk\\.nuget\\packages\\aspire.hosting.orchestration.win-x64\\8.2.0\\too" +
     "ls\\ext\\bin\\")]
-[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgifts" +
-    "oversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost")]
+[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\ut" +
+    "giftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt.AppHost")]
 [assembly: System.Reflection.AssemblyMetadata("aspiredashboardpath", "C:\\Users\\siri.slyk\\.nuget\\packages\\aspire.dashboard.sdk.win-x64\\8.2.0\\tools\\Aspir" +
     "e.Dashboard.exe")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("utgiftsoversikt.AppHost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb5eb24f30690a06cf589c0103e0d2330b7370be")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f5e9d85481b7cf709a3c1ade8a6e300eb81d359")]
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
 [assembly: System.Reflection.AssemblyProductAttribute("utgiftsoversikt.AppHost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("utgiftsoversikt.AppHost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -36,7 +36,11 @@ namespace utgiftsoversikt.Controllers
 
         //[HttpGet("{userId}", Name = "GetExpenses")]
         [HttpGet]
+<<<<<<< HEAD
         [Route("/expenses")]
+=======
+        [Route("/expenses/{userId}/{month}")]
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         public ActionResult<List<Expense>> GetAll(string userId, string month)
         {
             var expenses = _expenseService.GetAllByUserIdAndMonth(userId, month);
@@ -47,9 +51,16 @@ namespace utgiftsoversikt.Controllers
 
         //[HttpPost("{userId}", Name = "PostExpense")]
         [HttpPost]
+<<<<<<< HEAD
         [Route("/expense")]
         public IActionResult Post(string userId, Expense expense)
         {
+=======
+        [Route("/expense/{userId}")]
+        public IActionResult Post(string userId, Expense expense)
+        {
+            expense.Id = Guid.NewGuid().ToString();
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
             expense.UserId = userId;
             _expenseService.Create(expense);
             return Ok(expense.Id);
@@ -60,8 +71,14 @@ namespace utgiftsoversikt.Controllers
         [Route("/expense")]
         public IActionResult Put(Expense expense)
         {
+<<<<<<< HEAD
             _expenseService.Update(expense);
             return Ok();
+=======
+            //Must include modification of sum when changing an expense
+            var res = _expenseService.Update(expense);
+            return res ? Ok() : BadRequest();
+>>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         }
 
         //[HttpDelete(Name = "DeleteExpense")]
