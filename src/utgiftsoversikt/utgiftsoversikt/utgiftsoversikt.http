@@ -1,6 +1,0 @@
-@utgiftsoversikt_HostAddress = http://localhost:5116
-
-GET {{utgiftsoversikt_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
