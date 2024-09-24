@@ -20,17 +20,10 @@ namespace utgiftsoversikt.Controllers
         // Return user with id
         //[HttpGet("{month}", Name = "GetMonth")]
         [HttpGet]
-<<<<<<< HEAD
-        [Route("/month/{month}")]
-        public ActionResult<Month> Get(string month)
-        {
-            var result = _monthService.Get(month);
-=======
         [Route("/month/{userId}/{month}")]
         public ActionResult<Month> Get(string userId, string month)
         {
             var result = _monthService.Get(userId, month);
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
             if (result == null)
                 return NotFound();
             return Ok(result);
@@ -38,11 +31,7 @@ namespace utgiftsoversikt.Controllers
         // Return user with id
         //[HttpGet(Name = "GetMonths")]
         [HttpGet]
-<<<<<<< HEAD
-        [Route("/month")]
-=======
         [Route("/month/{userId}")]
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         public ActionResult<List<Month>> GetAll(string userId)
         {
             var result = _monthService.GetAll(userId);

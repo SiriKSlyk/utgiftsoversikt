@@ -106,30 +106,6 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-<<<<<<< HEAD
-    "Method": "Post",
-    "RelativePath": "expense",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "expense",
-        "Type": "utgiftsoversikt.Models.Expense",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-=======
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
     "Method": "Put",
     "RelativePath": "expense",
     "HttpMethod": "PUT",
@@ -188,10 +164,6 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
-<<<<<<< HEAD
-    "Method": "GetAll",
-    "RelativePath": "expenses",
-=======
     "Method": "Post",
     "RelativePath": "expense/{userId}",
     "HttpMethod": "POST",
@@ -215,7 +187,6 @@
     "ContainingType": "utgiftsoversikt.Controllers.ExpensesController",
     "Method": "GetAll",
     "RelativePath": "expenses/{userId}/{month}",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -223,20 +194,12 @@
       {
         "Name": "userId",
         "Type": "System.String",
-<<<<<<< HEAD
-        "IsRequired": false
-=======
         "IsRequired": true
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
       },
       {
         "Name": "month",
         "Type": "System.String",
-<<<<<<< HEAD
-        "IsRequired": false
-=======
         "IsRequired": true
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
       }
     ],
     "ReturnTypes": [
@@ -253,10 +216,6 @@
   },
   {
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-<<<<<<< HEAD
-    "Method": "GetAll",
-    "RelativePath": "month",
-=======
     "Method": "Post",
     "RelativePath": "month",
     "HttpMethod": "POST",
@@ -333,7 +292,6 @@
     "ContainingType": "utgiftsoversikt.Controllers.MonthController",
     "Method": "Get",
     "RelativePath": "month/{userId}/{month}",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -341,123 +299,12 @@
       {
         "Name": "userId",
         "Type": "System.String",
-<<<<<<< HEAD
-        "IsRequired": false
-=======
         "IsRequired": true
       },
       {
         "Name": "month",
         "Type": "System.String",
         "IsRequired": true
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-      }
-    ],
-    "ReturnTypes": [
-      {
-<<<<<<< HEAD
-        "Type": "System.Collections.Generic.List\u00601[[utgiftsoversikt.Models.Month, utgiftsoversikt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-=======
-        "Type": "utgiftsoversikt.Models.Month",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-<<<<<<< HEAD
-    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "Post",
-    "RelativePath": "month",
-=======
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Post",
-    "RelativePath": "user",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-<<<<<<< HEAD
-        "Name": "month",
-        "Type": "utgiftsoversikt.Models.Month",
-=======
-        "Name": "user",
-        "Type": "utgiftsoversikt.Models.User",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-<<<<<<< HEAD
-    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "Put",
-    "RelativePath": "month",
-=======
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Put",
-    "RelativePath": "user",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-<<<<<<< HEAD
-        "Name": "month",
-        "Type": "utgiftsoversikt.Models.Month",
-=======
-        "Name": "user",
-        "Type": "utgiftsoversikt.Models.User",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-<<<<<<< HEAD
-    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "Delete",
-    "RelativePath": "month",
-=======
-    "ContainingType": "Utgiftsoversikt.Controllers.UsersController",
-    "Method": "Delete",
-    "RelativePath": "user",
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-<<<<<<< HEAD
-        "Name": "month",
-        "Type": "utgiftsoversikt.Models.Month",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "utgiftsoversikt.Controllers.MonthController",
-    "Method": "Get",
-    "RelativePath": "month/{month}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "month",
-        "Type": "System.String",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -518,13 +365,6 @@
         "IsRequired": false
       }
     ],
-=======
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
     "ReturnTypes": []
   },
   {

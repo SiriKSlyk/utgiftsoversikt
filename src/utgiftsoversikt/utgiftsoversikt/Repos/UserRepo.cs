@@ -35,11 +35,7 @@ namespace utgiftsoversikt.Repos
         {
             
             _context.Users.Add(user);
-<<<<<<< HEAD
-            _context.SaveChangesAsync();
-=======
             return Write().Result;
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         }
 
         public List<User> GetAllUsers()
@@ -68,17 +64,7 @@ namespace utgiftsoversikt.Repos
         public bool UpdateUserByUser(User user)
         {
 
-<<<<<<< HEAD
-            var trackedUser = _context.ChangeTracker.Entries<User>()
-            .FirstOrDefault(e => e.Entity.Id == user.Id);
-            if (trackedUser != null)
-            {
-                // Fjern den eksisterende sporing
-                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
-            }
-=======
             RemoveTrace(user);
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
 
             _context.Users?.Update(user);
             return Write().Result;

@@ -7,5 +7,5 @@ namespace Projects;
 [global::System.Diagnostics.DebuggerDisplay("Type = {GetType().Name,nq}, ProjectPath = {ProjectPath}")]
 public class utgiftsoversikt : global::Aspire.Hosting.IProjectMetadata
 {
-    public string ProjectPath => """C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\test\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt\utgiftsoversikt.csproj""";
+    public string ProjectPath => """C:\Users\siri.slyk\OneDrive - Bouvet Norge AS\Dokumenter\Syndicate skolen\utgiftsoversikt\src\utgiftsoversikt\utgiftsoversikt\utgiftsoversikt.csproj""";
 }

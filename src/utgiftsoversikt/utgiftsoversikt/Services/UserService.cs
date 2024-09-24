@@ -60,10 +60,6 @@ namespace utgiftsoversikt.Services
             user.Id = oldUser.Id;
             user.Is_admin = oldUser.Is_admin;
             user.BudgetId = oldUser.BudgetId;
-<<<<<<< HEAD
-
-=======
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
             _userRepo.UpdateUserByUser(user);
 
             return _userRepo.Write().Result;

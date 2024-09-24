@@ -8,17 +8,11 @@ namespace utgiftsoversikt.Repos
     {
         List<Budget> GetAll(string userId);
         Budget GetById(string id);
-<<<<<<< HEAD
-        void Create(Budget budget);
-        void Update(Budget budget);
-        void Delete(Budget budget);
-=======
         bool Create(Budget budget);
         bool Update(Budget budget);
         bool Delete(Budget budget);
         void RemoveTrace(Budget budget);
         Task<bool> Write();
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
 
     }
 
@@ -43,23 +37,6 @@ namespace utgiftsoversikt.Repos
             return _context.Budget?.FirstOrDefault(e => e.Id == id);
         }
 
-<<<<<<< HEAD
-        public void Create(Budget budget)
-        {
-            _context.Budget?.Add(budget);
-            _context.SaveChangesAsync();
-        }
-
-        public void Update(Budget budget)
-        {
-            _context.Budget?.Update(budget);
-            _context.SaveChangesAsync();
-        }
-        public void Delete(Budget budget)
-        {
-            _context?.Budget?.Remove(budget);
-            _context.SaveChangesAsync();
-=======
         public bool Create(Budget budget)
         {
             _context.Budget?.Add(budget);
@@ -90,7 +67,6 @@ namespace utgiftsoversikt.Repos
         public async Task<bool> Write()
         {
             return await _context.SaveChangesAsync() > 0;
->>>>>>> 6adc23507ea9aeabd4e85b10a1e9c111d6d5a6fa
         }
 
     }

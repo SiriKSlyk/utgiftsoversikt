@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LHAPCpZ9lLc=",
+  "dgSpecHash": "OCS8AIK7eiM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\test\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt\\utgiftsoversikt.csproj",
+  "projectFilePath": "C:\\Users\\siri.slyk\\OneDrive - Bouvet Norge AS\\Dokumenter\\Syndicate skolen\\utgiftsoversikt\\src\\utgiftsoversikt\\utgiftsoversikt\\utgiftsoversikt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\siri.slyk\\.nuget\\packages\\aspire.hosting\\8.2.0\\aspire.hosting.8.2.0.nupkg.sha512",
     "C:\\Users\\siri.slyk\\.nuget\\packages\\aspire.hosting.azure\\8.2.0\\aspire.hosting.azure.8.2.0.nupkg.sha512",
