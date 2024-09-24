@@ -1,4 +1,4 @@
-using Azure.ResourceManager.CosmosDB.Models;
+
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -11,7 +11,10 @@ var backend = builder.AddProject<Projects.utgiftsoversikt>("utgiftsoversikt")
     .WithReference(db)
     .WithExternalHttpEndpoints();
 
-
+builder.AddNpmApp("frontend", "../frontend").WithReference(backend)
+    .WithEnvironment("BROWSER", "none") // Disable opening browser on npm start
+    .WithHttpEndpoint(env: "PORT")
+    .WithExternalHttpEndpoints();
 
 
 builder.Build().Run();

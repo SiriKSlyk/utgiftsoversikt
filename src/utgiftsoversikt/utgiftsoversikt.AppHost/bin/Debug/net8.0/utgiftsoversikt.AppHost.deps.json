@@ -12,6 +12,7 @@
           "Aspire.Hosting.AppHost": "8.2.0",
           "Aspire.Hosting.Azure.CosmosDB": "8.2.0",
           "Aspire.Hosting.Azure.Sql": "8.2.0",
+          "Aspire.Hosting.NodeJs": "8.2.0",
           "Aspire.Hosting.Orchestration.win-x64": "8.2.0",
           "Aspire.Microsoft.EntityFrameworkCore.SqlServer": "8.2.0"
         },
@@ -209,6 +210,32 @@
         },
         "runtime": {
           "lib/net8.0/Aspire.Hosting.Azure.Sql.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.200.24.42805"
+          }
+        }
+      },
+      "Aspire.Hosting.NodeJs/8.2.0": {
+        "dependencies": {
+          "Aspire.Hosting": "8.2.0",
+          "Google.Protobuf": "3.27.3",
+          "Grpc.AspNetCore": "2.65.0",
+          "Grpc.Net.ClientFactory": "2.65.0",
+          "Grpc.Tools": "2.65.0",
+          "KubernetesClient": "14.0.9",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Hosting": "8.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Http": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0",
+          "Polly.Core": "8.4.1"
+        },
+        "runtime": {
+          "lib/net8.0/Aspire.Hosting.NodeJs.dll": {
             "assemblyVersion": "8.2.0.0",
             "fileVersion": "8.200.24.42805"
           }
@@ -1340,6 +1367,13 @@
       "sha512": "sha512-FEEE6JugQWikJ5Z34RHDe6evBmumDZjD7gX8srSqYH9KG9yNNd/wBVcUmwH3L+IqzsBr4JbhPOAIIzI9dASDpQ==",
       "path": "aspire.hosting.azure.sql/8.2.0",
       "hashPath": "aspire.hosting.azure.sql.8.2.0.nupkg.sha512"
+    },
+    "Aspire.Hosting.NodeJs/8.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RimZQSxZ6Byh6W7ZsVIlQAi7ou1wYOSlInDqNMT5U5L4Dn5phv14Fa6M2RV3zI829XmRmEJrj+IFO0z6yjsVBg==",
+      "path": "aspire.hosting.nodejs/8.2.0",
+      "hashPath": "aspire.hosting.nodejs.8.2.0.nupkg.sha512"
     },
     "Aspire.Hosting.Orchestration.win-x64/8.2.0": {
       "type": "package",
